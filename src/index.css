@@ -1,0 +1,55 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+* {
+  font-family: 'Bebas Neue', cursive;
+}
+
+/* NavBar Component */
+.nav-info:hover {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+}
+
+/* Home aka ContactList page */
+.contact-list-wrapper {
+  background-color: whitesmoke;
+}
+
+.avatar-images {
+  width: 120px !important;
+  /* border-radius: 500px; */
+}
+
+/* Add contact component */
+.cancel-new-contact-icon:hover {
+  color: red !important;
+}
+
+.add-title {
+  letter-spacing: 4.8px !important;
+}
+
+/* Removes arrow on number input */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+/* View contact page */
+
+.view-contact-avatar {
+  height: 300px;
+}
+
+.loading-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
