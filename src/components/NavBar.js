@@ -6,7 +6,7 @@ import { faPhone } from '@fortawesome/free-solid-svg-icons';
 
 const NavBar = () => {
   return (
-    <Nav defaultActiveKey='/home' as='ul' className='navbar-dark bg-dark p-2'>
+    <Nav defaultActiveKey='/home' as='ul' className='navbar-dark bg-dark p-2 sticky-top'>
       <Nav.Item as='li' className='w-100'>
         <Nav.Link as={Link} to={'/'} className='text-white mx-5 '>
           <FontAwesomeIcon

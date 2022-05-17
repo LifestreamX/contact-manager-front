@@ -1,4 +1,5 @@
 import React, { useEffect, useState, Fragment } from 'react';
+import { useParams } from 'react-router-dom';
 
 import {
   Container,
@@ -27,32 +28,9 @@ const ContactList = ({
   setErrorMessage,
   contacts,
   setContacts,
+  setIndividualContact,
 }) => {
-  // Grabbing the data contacts from the server localhost9000 with axios
-  const getAllContacts = () => {
-    const serverURL = 'http://localhost:9000';
-    const dataURL = `${serverURL}/contacts`;
-    return axios.get(dataURL);
-  };
 
-  // Fetching the data that the ContactService component received
-  let fetchData = async () => {
-    try {
-      setLoading(true);
-      let res = await getAllContacts();
-      setLoading(false);
-      // console.log(res.data)
-      setContacts(res.data);
-      // console.log(contacts);
-    } catch (error) {
-      setLoading(false);
-      setErrorMessage('Error');
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   return (
     <>
@@ -67,7 +45,7 @@ const ContactList = ({
           <span className='visually-hidden'>Loading...</span>
         </Spinner>
       ) : (
-        <Container className='contact-list-wrapper position-absolute top-50 start-50 translate-middle px-5 py-4 '>
+        <Container className='contact-list-wrapper position-relative  px-5 py-4 '>
           <Row>
             <Col className=' mx-2'>
               <div className='d-flex justify-content-start align-items-center my-5 '>
@@ -148,13 +126,15 @@ const ContactList = ({
                           </Button>
                         </Link>
                         {/* Edit button */}
-                        <Link to={`/edit/:contactId`}>
+                        <Link to={`/edit/${contact.id}`}>
                           <Button variant='success'>
                             <FontAwesomeIcon icon={faPen} />
                           </Button>
                         </Link>
                         {/* Delete button */}
-                        <Button variant='danger'>
+                        <Button
+                          variant='danger'
+                        >
                           <FontAwesomeIcon icon={faTrash} />
                         </Button>
                       </Col>

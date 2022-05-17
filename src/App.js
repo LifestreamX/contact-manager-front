@@ -86,7 +86,29 @@ function App() {
             />
           }
         />
-        <Route path={'/edit/:contactId'} element={<EditContact />} />
+        <Route
+          path={'/edit/:contactId'}
+          element={
+            <EditContact
+              loading={loading}
+              setLoading={setLoading}
+              contacts={contacts}
+              setContacts={setContacts}
+              errorMessage={errorMessage}
+              setErrorMessage={setErrorMessage}
+              individualContact={individualContact}
+              setIndividualContact={setIndividualContact}
+              groupData={groupData}
+              setGroupData={setGroupData}
+              setNumber={setNumber}
+              setEmail={setEmail}
+              setCompany={setCompany}
+              setTitle={setTitle}
+              setRelationship={setRelationship}
+              relationShipInfo={relationShipInfo}
+            />
+          }
+        />
       </Routes>
     </div>
   );

@@ -14,7 +14,6 @@ import { faX } from '@fortawesome/free-solid-svg-icons';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 
-// import avatar1 from '../../public/images/man.png';
 
 const ViewContact = ({
   loading,
@@ -53,6 +52,7 @@ const ViewContact = ({
   useEffect(() => {
     settingContactData();
   }, [contactId]);
+
 
   // Matching group number to groups to display group name
   const grabGroupData = () => {
