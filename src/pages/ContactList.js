@@ -1,5 +1,4 @@
 import React, { useEffect, useState, Fragment } from 'react';
-import { useParams } from 'react-router-dom';
 
 import {
   Container,
@@ -28,8 +27,43 @@ const ContactList = ({
   setErrorMessage,
   contacts,
   setContacts,
-  setIndividualContact,
 }) => {
+
+
+  // Grabbing contact data on original page load
+  const grabServerContactData = () => {
+    const serverURL = 'http://localhost:9000';
+    let dataURL = `${serverURL}/contacts`;
+    return axios.get(dataURL);
+  };
+
+  const data = async () => {
+    setLoading(true);
+    let res = await grabServerContactData();
+    // console.log(res.data);
+    setContacts(res.data);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    data();
+  }, []);
+
+  // Delete logic
+  const deleteContact = (contactId) => {
+    const serverURL = 'http://localhost:9000';
+    let dataURL = `${serverURL}/contacts/${contactId}`;
+    return axios.delete(dataURL);
+  };
+
+  const handleDelete = async (contactId) => {
+    try {
+      let res = await deleteContact(contactId);
+      if (res) {
+        data();
+      }
+    } catch {}
+  };
 
 
   return (
@@ -134,6 +168,7 @@ const ContactList = ({
                         {/* Delete button */}
                         <Button
                           variant='danger'
+                          onClick={() => handleDelete(contact.id)}
                         >
                           <FontAwesomeIcon icon={faTrash} />
                         </Button>

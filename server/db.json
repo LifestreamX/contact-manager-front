@@ -1,16 +1,6 @@
 {
   "contacts": [
     {
-      "id": "10",
-      "name": "Tyler",
-      "photo": "/images/man.png",
-      "number": "774-279-1233",
-      "email": "Tylerallen@Live.com",
-      "title": "Web dev",
-      "company": "google",
-      "relationship": "1"
-    },
-    {
       "id": "20",
       "name": "Jill",
       "photo": "/images/man.png",
@@ -21,24 +11,34 @@
       "relationship": "4"
     },
     {
-      "name": "",
-      "photo": "",
-      "number": "",
-      "email": "",
-      "title": "",
-      "company": "",
-      "relationship": "Girlfriend",
-      "id": "30"
+      "id": "30",
+      "name": "Tyler",
+      "photo": "/images/man.png",
+      "number": "750-279-1233",
+      "email": "jilly123@yahoo.com",
+      "title": "Product Designer",
+      "company": "Pier Street",
+      "relationship": "4"
     },
     {
-      "name": "Tyler Allen",
-      "photo": "dfgfdg",
-      "number": "54354345",
-      "email": "tylerallen@live.com",
-      "title": "dghdfhgfgh",
-      "company": "hghgfhdhg",
-      "relationship": "Boyfriend",
-      "id": "40"
+      "id": "40",
+      "name": "Eggs",
+      "photo": "/images/man.png",
+      "number": "750-279-1233",
+      "email": "jilly123@yahoo.com",
+      "title": "Product Designer",
+      "company": "Pier Street",
+      "relationship": "4"
+    },
+    {
+      "id": "50",
+      "name": "tuna",
+      "photo": "/images/man.png",
+      "number": "750-279-1233",
+      "email": "jilly123@yahoo.com",
+      "title": "Product Designer",
+      "company": "Pier Street",
+      "relationship": "4"
     }
   ],
   "groups": [
