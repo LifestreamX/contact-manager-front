@@ -21,16 +21,6 @@
       "relationship": "4"
     },
     {
-      "id": "40",
-      "name": "Eggs",
-      "photo": "/images/man.png",
-      "number": "750-279-1233",
-      "email": "jilly123@yahoo.com",
-      "title": "Product Designer",
-      "company": "Pier Street",
-      "relationship": "4"
-    },
-    {
       "id": "50",
       "name": "tuna",
       "photo": "/images/man.png",

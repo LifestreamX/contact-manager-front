@@ -28,7 +28,8 @@ const ContactList = ({
   contacts,
   setContacts,
 }) => {
-
+  const [search, setSearch] = useState('');
+  const [filteredContacts, setFilteredContacts] = useState([]);
 
   // Grabbing contact data on original page load
   const grabServerContactData = () => {
@@ -65,6 +66,37 @@ const ContactList = ({
     } catch {}
   };
 
+  // Search logic
+
+  // useEffect(() => {
+  //   setContacts((prev) =>
+  //     prev.filter((f) => f.name.toLowerCase().startsWith(search))
+  //   );
+  // }, [search]);
+
+  const filter = () => {
+    let result = contacts.filter((f) =>
+      f.name.toLowerCase().startsWith(search)
+    );
+
+    setFilteredContacts(result);
+  };
+
+  useEffect(() => {
+    filter();
+  }, [search]);
+
+  // Reset search
+  const resetSearch = () => {
+    const serverURL = 'http://localhost:9000';
+    let dataURL = `${serverURL}/contacts`;
+    return axios.get(dataURL);
+  };
+
+  const reset = async () => {
+    let res = await resetSearch();
+    setContacts(res.data);
+  };
 
   return (
     <>
@@ -100,29 +132,20 @@ const ContactList = ({
           {/* Input to search for Contacts */}
           <Row>
             <Col>
-              <InputGroup className='mb-3 mx-2  w-25 '>
+              <InputGroup className='mb-3 mx-2  w-25 d-flex justify-content-evenly'>
                 <FormControl
                   placeholder='Search Contact'
                   aria-label='contact'
                   aria-describedby='basic-addon2'
                   className='fs-4'
+                  onChange={(e) => setSearch(e.target.value)}
                 />
-
-                <Button
-                  variant='dark'
-                  id='button-addon2'
-                  type='submit'
-                  value='Search'
-                  className='fs-4'
-                >
-                  Search
-                </Button>
               </InputGroup>
             </Col>
           </Row>
 
           <Row className=' contact-list-section w-100 justify-content-center'>
-            {contacts.map((contact) => (
+            {filteredContacts.map((contact) => (
               <React.Fragment key={contact.id}>
                 {/* Contact profile information */}
                 <Col className='d-flex justify-content-start w-100'>
