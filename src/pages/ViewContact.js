@@ -20,6 +20,7 @@ const ViewContact = ({
   setGroupData,
 }) => {
   const { contactId } = useParams();
+  
 
   // Using id from view contact id to grab data from server
   const getContactDataById = (contactId) => {
@@ -34,7 +35,7 @@ const ViewContact = ({
       let res = await getContactDataById(contactId);
       setLoading(false);
       setIndividualContact(res.data);
-      console.log(individualContact.relationship);
+      // console.log(individualContact.relationship);
     } catch (error) {
       setLoading(false);
       setErrorMessage('Error');
@@ -68,13 +69,12 @@ const ViewContact = ({
   // Get the right Group by compareing IDs
 
   const foundGroupName = groupData.find((obj) => {
-    return obj.id === individualContact ? individualContact.relationship : '';
+    return obj.id ===  individualContact.relationship ;
   });
   console.log(foundGroupName);
 
   return (
     <>
-    
       {loading ? (
         <Spinner
           animation='border'
@@ -85,7 +85,7 @@ const ViewContact = ({
           <span className='visually-hidden'>Loading...</span>
         </Spinner>
       ) : (
-        <Container className='position-absolute top-50 start-50 translate-middle border-2 rounded shadow   bg-body rounded position-relative w-50 '>
+        <Container className='position-absolute top-50 start-50 translate-middle border-2 rounded shadow bg-body rounded position-relative w-50 '>
           <Row className='border border-warning border border-2 p-5 d-flex justify-content-between '>
             <Col className='d-flex justify-content-center '>
               <img

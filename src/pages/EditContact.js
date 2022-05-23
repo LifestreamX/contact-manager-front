@@ -128,6 +128,8 @@ const EditContact = ({
     }
   };
 
+  console.log(groupData)
+
   return (
     <>
       {loading ? (
@@ -140,8 +142,8 @@ const EditContact = ({
           <span className='visually-hidden'>Loading...</span>
         </Spinner>
       ) : (
-        <Container className='d-flex  justify-content-between align-items-center my-5 h-100 position-absolute top-50 start-50 translate-middle'>
-          <Row className='border border-success border border-2 rounded shadow   bg-body rounded position-relative  d-flex flex-column w-50 p-5 '>
+        <Container className='d-flex  justify-content-between align-items-center position-absolute edit-contact-wrapper mt-5'>
+          <Row className='border border-success border border-2 rounded shadow bg-body rounded position-relative  d-flex flex-column w-50 pb-5'>
             <Col>
               <p className=' d-flex justify-content-center fs-4 fw-bolder mt-4  flex-column align-items-center'>
                 <span className='text-center add-title fs-1 mb-4'>
@@ -163,9 +165,9 @@ const EditContact = ({
               </Link>
             </Col>
 
-            <Col className='p-3'>
+            <Col>
               <Form className='fs-4' onSubmit={handleSubmit}>
-                <Form.Group className='mb-3' controlId='name'>
+                <Form.Group controlId='name' className='mb-3'>
                   <Form.Label>Name</Form.Label>
                   <Form.Control
                     size='lg'
@@ -173,7 +175,7 @@ const EditContact = ({
                     placeholder={
                       individualContact ? individualContact.name : ''
                     }
-                    value={editName}
+                    // value={editName}
                     onChange={(e) => setEditName(e.target.value)}
                   />
                 </Form.Group>
@@ -181,19 +183,19 @@ const EditContact = ({
                   <Form.Label>Photo Url</Form.Label>
                   <Form.Control
                     size='lg'
-                    value={editPhoto}
+                    // value={editPhoto}
                     placeholder={
                       individualContact ? individualContact.photo : ''
                     }
                     onChange={(e) => setEditPhoto(e.target.value)}
                   />
                 </Form.Group>
-                <Form.Group className='mb-3' controlId='number'>
+                <Form.Group controlId='number' className='mb-3'>
                   <Form.Label>Phone Number</Form.Label>
                   <Form.Control
                     size='lg'
                     type='tel'
-                    value={editNumber}
+                    // value={editNumber}
                     placeholder={
                       individualContact ? individualContact.number : ''
                     }
@@ -205,7 +207,7 @@ const EditContact = ({
                   <Form.Control
                     size='lg'
                     type='email'
-                    value={editEmail}
+                    // value={editEmail}
                     placeholder={
                       individualContact ? individualContact.email : ''
                     }
@@ -217,7 +219,7 @@ const EditContact = ({
                   <Form.Control
                     size='lg'
                     type='text'
-                    value={editCompany}
+                    // value={editCompany}
                     placeholder={
                       individualContact ? individualContact.company : ''
                     }
@@ -229,7 +231,7 @@ const EditContact = ({
                   <Form.Control
                     size='lg'
                     type='text'
-                    value={editTitle}
+                    // value={editTitle}
                     placeholder={
                       individualContact ? individualContact.title : ''
                     }
@@ -244,11 +246,11 @@ const EditContact = ({
                   onChange={(e) => setEditRelationship(e.target.value)}
                 >
                   <option hidden>
-                    {individualContact ? individualContact.relationship : ''}
+                    {foundGroupName ? foundGroupName.name : ''}{' '}
                   </option>
                   {groupData.map((rele) => {
                     return (
-                      <option key={rele.id} value={rele.name}>
+                      <option key={rele.id} value={rele.id}>
                         {rele.name}
                       </option>
                     );
@@ -256,7 +258,7 @@ const EditContact = ({
                 </Form.Select>
                 <Button
                   type='submit'
-                  className='mt-5 w-100 fs-4'
+                  className='mt-5 w-100 fs-4 text-center'
                   variant='success'
                 >
                   Save Changes
