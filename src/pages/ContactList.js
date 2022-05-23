@@ -33,6 +33,7 @@ const ContactList = ({
   const [search, setSearch] = useState('');
   const [filteredContacts, setFilteredContacts] = useState([]);
   const [show, setShow] = useState(false);
+  const [modalIdInfo, setModalIdInfo] = useState();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -172,16 +173,18 @@ const ContactList = ({
                             <FontAwesomeIcon icon={faPen} />
                           </Button>
                         </Link>
-                        {/* Delete button */}
-                        {/* <Button
-                          variant='danger'
-                          onClick={() => handleDelete(contact.id)}
-                        > 
-                        gfdgfdsfggfhghhgfhdgf
-                        </Button>  */}
+
+                    
 
                         {/* Modal for delete confirm */}
-                        <Button variant='danger' onClick={handleShow}>
+                        <Button
+                          variant='danger'
+                          onClick={() => {
+                            handleShow();
+                            setModalIdInfo(contact.id)
+                            console.log(modalIdInfo)
+                          }}
+                        >
                           <FontAwesomeIcon icon={faTrash} />
                         </Button>
 
@@ -189,7 +192,7 @@ const ContactList = ({
                           show={show}
                           onHide={handleClose}
                           animation={false}
-                          className='delete-modal '
+                          className='delete-modal'
                         >
                           <Modal.Header closeButton></Modal.Header>
                           <Modal.Body>
@@ -206,7 +209,7 @@ const ContactList = ({
                               variant='danger'
                               className='btn btn-lg  w-25 fs-4  '
                               onClick={() => {
-                                handleDelete(contact.id);
+                                handleDelete(modalIdInfo);
                                 handleClose();
                               }}
                             >

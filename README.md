@@ -9,14 +9,13 @@
 
 TODO: 
 
-- clicking edit brings up the last profile instead of the one u just clicked
 
-- relationship shows as a number in edit screen after u create a new 
- contact. if you edit then add a relationship again, it saves properly.
 
+- delete issue
 - change relationship to ethicity options
-
+- Save edit contacts issue 
 - responsive 
+- clean up code
 
 
 

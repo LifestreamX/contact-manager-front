@@ -108,6 +108,9 @@ const EditContact = ({
     relationship: editRelationShip,
   };
 
+  console.log(userId)
+  console.log(editName)
+
   const EditContact = (contactInfo) => {
     const serverURL = 'http://localhost:9000';
     let dataURL = `${serverURL}/contacts/${contactId}`;
@@ -128,7 +131,7 @@ const EditContact = ({
     }
   };
 
-  console.log(groupData)
+  // console.log(groupData)
 
   return (
     <>
