@@ -3,25 +3,17 @@ import {
   Col,
   Container,
   Row,
-  Form,
   Button,
-  ProgressBar,
   ListGroup,
   Spinner,
 } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faX } from '@fortawesome/free-solid-svg-icons';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
-
 
 const ViewContact = ({
   loading,
   setLoading,
-  errorMessage,
   setErrorMessage,
-  contacts,
-  setContacts,
   individualContact,
   setIndividualContact,
   groupData,
@@ -53,7 +45,6 @@ const ViewContact = ({
     settingContactData();
   }, [contactId]);
 
-
   // Matching group number to groups to display group name
   const grabGroupData = () => {
     const serverURL = 'http://localhost:9000';
@@ -65,7 +56,6 @@ const ViewContact = ({
     try {
       let res = await grabGroupData();
       setGroupData(res.data);
-      // console.log(groupData);
     } catch (error) {
       setErrorMessage('Error');
     }
@@ -78,12 +68,13 @@ const ViewContact = ({
   // Get the right Group by compareing IDs
 
   const foundGroupName = groupData.find((obj) => {
-    return obj.id === individualContact.relationship;
+    return obj.id === individualContact ? individualContact.relationship : '';
   });
-  // console.log(foundGroupName);
+  console.log(foundGroupName);
 
   return (
     <>
+    
       {loading ? (
         <Spinner
           animation='border'
@@ -98,25 +89,27 @@ const ViewContact = ({
           <Row className='border border-warning border border-2 p-5 d-flex justify-content-between '>
             <Col className='d-flex justify-content-center '>
               <img
-                src={individualContact.photo}
+                src={individualContact ? individualContact.photo : ''}
                 alt=''
-                className='view-contact-avatar  rounded-circle'
+                className='view-contact-avatar '
               />
             </Col>
             <Col>
               <ListGroup className='w-100 mb-4 fs-3'>
-                <ListGroup.Item>Name: {individualContact.name}</ListGroup.Item>
                 <ListGroup.Item>
-                  Number: {individualContact.number}
+                  Name: {individualContact ? individualContact.name : ''}
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  Email: {individualContact.email}
+                  Number: {individualContact ? individualContact.number : ''}
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  Title: {individualContact.title}
+                  Email: {individualContact ? individualContact.email : ''}
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  Relationship: {foundGroupName.name}
+                  Title: {individualContact ? individualContact.title : ''}
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  Relationship: {foundGroupName ? foundGroupName.name : ''}
                 </ListGroup.Item>
               </ListGroup>
               <Link to='/'>

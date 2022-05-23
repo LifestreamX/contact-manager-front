@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from 'react';
+import React, { useEffect, useState, Fragment, useMemo } from 'react';
 
 import {
   Container,
@@ -10,6 +10,8 @@ import {
   Card,
   ListGroup,
   Spinner,
+  Modal,
+  Alert,
 } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -30,6 +32,10 @@ const ContactList = ({
 }) => {
   const [search, setSearch] = useState('');
   const [filteredContacts, setFilteredContacts] = useState([]);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   // Grabbing contact data on original page load
   const grabServerContactData = () => {
@@ -50,6 +56,15 @@ const ContactList = ({
     data();
   }, []);
 
+  // Search logic
+  const filteredItems = useMemo(() => {
+    if (!search) return contacts;
+
+    return contacts.filter((contact) => {
+      return contact.name.toLowerCase().startsWith(search.toLowerCase());
+    });
+  }, [search, contacts]);
+
   // Delete logic
   const deleteContact = (contactId) => {
     const serverURL = 'http://localhost:9000';
@@ -64,38 +79,6 @@ const ContactList = ({
         data();
       }
     } catch {}
-  };
-
-  // Search logic
-
-  // useEffect(() => {
-  //   setContacts((prev) =>
-  //     prev.filter((f) => f.name.toLowerCase().startsWith(search))
-  //   );
-  // }, [search]);
-
-  const filter = () => {
-    let result = contacts.filter((f) =>
-      f.name.toLowerCase().startsWith(search)
-    );
-
-    setFilteredContacts(result);
-  };
-
-  useEffect(() => {
-    filter();
-  }, [search]);
-
-  // Reset search
-  const resetSearch = () => {
-    const serverURL = 'http://localhost:9000';
-    let dataURL = `${serverURL}/contacts`;
-    return axios.get(dataURL);
-  };
-
-  const reset = async () => {
-    let res = await resetSearch();
-    setContacts(res.data);
   };
 
   return (
@@ -144,8 +127,9 @@ const ContactList = ({
             </Col>
           </Row>
 
+          {/* Card section */}
           <Row className=' contact-list-section w-100 justify-content-center'>
-            {filteredContacts.map((contact) => (
+            {filteredItems.map((contact) => (
               <React.Fragment key={contact.id}>
                 {/* Contact profile information */}
                 <Col className='d-flex justify-content-start w-100'>
@@ -156,7 +140,7 @@ const ContactList = ({
                         <Card.Img
                           variant='top'
                           src={contact.photo}
-                          className='avatar-images rounded-circle'
+                          className='avatar-images '
                         />
                       </Col>
                       {/* Middle of card information */}
@@ -167,7 +151,7 @@ const ContactList = ({
                         <ListGroup className='fs-5'>
                           <ListGroup.Item>Name: {contact.name}</ListGroup.Item>
                           <ListGroup.Item>
-                            Number: {contact.number}
+                            Phone Number: {contact.number}
                           </ListGroup.Item>
                           <ListGroup.Item>
                             Email: {contact.email}
@@ -189,12 +173,47 @@ const ContactList = ({
                           </Button>
                         </Link>
                         {/* Delete button */}
-                        <Button
+                        {/* <Button
                           variant='danger'
                           onClick={() => handleDelete(contact.id)}
-                        >
+                        > 
+                        gfdgfdsfggfhghhgfhdgf
+                        </Button>  */}
+
+                        {/* Modal for delete confirm */}
+                        <Button variant='danger' onClick={handleShow}>
                           <FontAwesomeIcon icon={faTrash} />
                         </Button>
+
+                        <Modal
+                          show={show}
+                          onHide={handleClose}
+                          animation={false}
+                          className='delete-modal '
+                        >
+                          <Modal.Header closeButton></Modal.Header>
+                          <Modal.Body>
+                            <Alert variant='danger' className='fs-5 text-black'>
+                              Are you sure you want to permanently delete
+                              contact this contact?
+                            </Alert>
+                          </Modal.Body>
+                          <Modal.Footer className='d-flex justify-content-center'>
+                            {/* <Button variant='secondary' onClick={handleClose}>
+                              Close
+                            </Button> */}
+                            <Button
+                              variant='danger'
+                              className='btn btn-lg  w-25 fs-4  '
+                              onClick={() => {
+                                handleDelete(contact.id);
+                                handleClose();
+                              }}
+                            >
+                              DELETE
+                            </Button>
+                          </Modal.Footer>
+                        </Modal>
                       </Col>
                     </Card.Body>
                   </Card>

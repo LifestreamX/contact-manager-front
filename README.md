@@ -6,6 +6,20 @@
 - json-server
 - uuid
 
+
+TODO: 
+- relationship doesn't show in view screen
+- fix edit screen 
+- when in edit screen, can't edit phone number, can only type a whole new number
+- clicking edit brings up the last profile instead of the one u just clicked
+- relationship shows as a number in edit screen after u create a new -  contact. if you edit then add a relationship again, it saves properly.
+- change relationship to ethicity options
+- responsive 
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

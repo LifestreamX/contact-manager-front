@@ -31,7 +31,6 @@ const AddContact = ({
   relationshipInfo,
   setRelationshipInfo,
   errorMessage,
-  setErrorMessage,
 }) => {
   let navigate = useNavigate();
 
@@ -114,8 +113,6 @@ const AddContact = ({
               />
             </Form.Group>
 
-     
-
             <Form.Group className='mb-3' controlId='photo'>
               <Form.Label>Photo Url</Form.Label>
               <Form.Control
@@ -126,11 +123,11 @@ const AddContact = ({
             </Form.Group>
 
             <Form.Group className='mb-3' controlId='number'>
-              <Form.Label>Number</Form.Label>
+              <Form.Label>Phone Number</Form.Label>
               <Form.Control
                 required
                 size='lg'
-                type='number'
+                type='tel'
                 onChange={(e) => setNumber(e.target.value)}
               />
             </Form.Group>
@@ -168,6 +165,8 @@ const AddContact = ({
               onChange={(e) => setRelationship(e.target.value)}
               required
             >
+              <option hidden></option>
+
               {relationshipInfo.map((rele) => {
                 return (
                   <option key={rele.id} value={rele.id}>
