@@ -25,8 +25,7 @@ import axios from 'axios';
 const ContactList = ({
   loading,
   setLoading,
-  errorMessage,
-  setErrorMessage,
+
   contacts,
   setContacts,
 }) => {
@@ -56,6 +55,8 @@ const ContactList = ({
   useEffect(() => {
     data();
   }, []);
+
+  console.log(contacts);
 
   // Search logic
   const filteredItems = useMemo(() => {
@@ -116,15 +117,17 @@ const ContactList = ({
           {/* Input to search for Contacts */}
           <Row>
             <Col>
-              <InputGroup className='mb-3 mx-2  w-25 d-flex justify-content-evenly'>
-                <FormControl
-                  placeholder='Search Contact'
-                  aria-label='contact'
-                  aria-describedby='basic-addon2'
-                  className='fs-4'
-                  onChange={(e) => setSearch(e.target.value)}
-                />
-              </InputGroup>
+              {contacts.length > 1 && (
+                <InputGroup className='mb-3 mx-2  w-25 d-flex justify-content-evenly'>
+                  <FormControl
+                    placeholder='Search Contact'
+                    aria-label='contact'
+                    aria-describedby='basic-addon2'
+                    className='fs-4'
+                    onChange={(e) => setSearch(e.target.value)}
+                  />
+                </InputGroup>
+              )}
             </Col>
           </Row>
 
@@ -134,7 +137,7 @@ const ContactList = ({
               <React.Fragment key={contact.id}>
                 {/* Contact profile information */}
                 <Col className='d-flex justify-content-start w-100'>
-                  <Card className='p-2 m-2 '>
+                  <Card className='p-3 m-2'>
                     {/* Left of card avatar */}
                     <Card.Body className='d-flex '>
                       <Col className='d-flex align-items-center p-1 '>
@@ -174,15 +177,12 @@ const ContactList = ({
                           </Button>
                         </Link>
 
-                    
-
                         {/* Modal for delete confirm */}
                         <Button
                           variant='danger'
                           onClick={() => {
                             handleShow();
-                            setModalIdInfo(contact.id)
-                            console.log(modalIdInfo)
+                            setModalIdInfo(contact.id);
                           }}
                         >
                           <FontAwesomeIcon icon={faTrash} />
@@ -192,19 +192,16 @@ const ContactList = ({
                           show={show}
                           onHide={handleClose}
                           animation={false}
-                          className='delete-modal'
+                          className='delete-modal '
                         >
                           <Modal.Header closeButton></Modal.Header>
                           <Modal.Body>
-                            <Alert variant='danger' className='fs-5 text-black'>
+                            <Alert variant='danger' className='fs-4 text-black'>
                               Are you sure you want to permanently delete
                               contact this contact?
                             </Alert>
                           </Modal.Body>
                           <Modal.Footer className='d-flex justify-content-center'>
-                            {/* <Button variant='secondary' onClick={handleClose}>
-                              Close
-                            </Button> */}
                             <Button
                               variant='danger'
                               className='btn btn-lg  w-25 fs-4  '
@@ -221,9 +218,6 @@ const ContactList = ({
                     </Card.Body>
                   </Card>
                 </Col>
-
-                {/* Bottom section contacts */}
-                {/* <Row className='my-5 contact-list-section'></Row> */}
               </React.Fragment>
             ))}
           </Row>

@@ -11,8 +11,6 @@ TODO:
 
 
 
-- delete issue
-- change relationship to ethicity options
 - Save edit contacts issue 
 - responsive 
 - clean up code

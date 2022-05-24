@@ -33,9 +33,10 @@ const EditContact = ({
   const [editCompany, setEditCompany] = useState();
   const [editTitle, setEditTitle] = useState();
   const [userId, setUserId] = useState();
-  const [editRelationShip, setEditRelationship] = useState([]);
+  const [editRelationShip, setEditRelationship] = useState();
 
-  // console.log(editName, editPhoto);
+  // console.log(individualContact.name)
+  console.log(editName);
 
   // Using id from view contact id to grab data from server
   const getContactDataById = (contactId) => {
@@ -49,15 +50,15 @@ const EditContact = ({
       setLoading(true);
       let res = await getContactDataById(contactId);
       setIndividualContact(res.data);
+      setEditName(res.data.name);
+      setEditPhoto(res.data.photo);
+      setEditNumber(res.data.number);
+      setEditEmail(res.data.email);
+      setEditTitle(res.data.title);
+      setEditCompany(res.data.company);
+      setUserId(res.data.id);
+      setEditRelationship(res.data.relationship);
       setLoading(false);
-      setEditName(individualContact.name);
-      setEditPhoto(individualContact.photo);
-      setEditNumber(individualContact.number);
-      setEditEmail(individualContact.email);
-      setEditCompany(individualContact.company);
-      setEditTitle(individualContact.title);
-      setUserId(individualContact.id);
-      setEditRelationship(individualContact.relationship);
     } catch (error) {
       setLoading(false);
       setErrorMessage('Error');
@@ -92,7 +93,7 @@ const EditContact = ({
   }, []);
 
   const foundGroupName = groupData.find((obj) => {
-    return obj.id === individualContact.relationship;
+    return obj.id === individualContact ? individualContact.relationship : '';
   });
 
   // ****************************************************************
@@ -107,9 +108,6 @@ const EditContact = ({
     company: editCompany,
     relationship: editRelationShip,
   };
-
-  console.log(userId)
-  console.log(editName)
 
   const EditContact = (contactInfo) => {
     const serverURL = 'http://localhost:9000';
@@ -145,8 +143,8 @@ const EditContact = ({
           <span className='visually-hidden'>Loading...</span>
         </Spinner>
       ) : (
-        <Container className='d-flex  justify-content-between align-items-center position-absolute edit-contact-wrapper mt-5'>
-          <Row className='border border-success border border-2 rounded shadow bg-body rounded position-relative  d-flex flex-column w-50 pb-5'>
+        <Container className='d-flex  justify-content-between align-items-center position-absolute edit-contact-wrapper mt-5 '>
+          <Row className='border border-success border border-2 rounded shadow bg-body rounded position-relative  d-flex flex-column w-50 pb-5 px-5'>
             <Col>
               <p className=' d-flex justify-content-center fs-4 fw-bolder mt-4  flex-column align-items-center'>
                 <span className='text-center add-title fs-1 mb-4'>
@@ -178,7 +176,6 @@ const EditContact = ({
                     placeholder={
                       individualContact ? individualContact.name : ''
                     }
-                    // value={editName}
                     onChange={(e) => setEditName(e.target.value)}
                   />
                 </Form.Group>
@@ -186,7 +183,6 @@ const EditContact = ({
                   <Form.Label>Photo Url</Form.Label>
                   <Form.Control
                     size='lg'
-                    // value={editPhoto}
                     placeholder={
                       individualContact ? individualContact.photo : ''
                     }
@@ -198,7 +194,6 @@ const EditContact = ({
                   <Form.Control
                     size='lg'
                     type='tel'
-                    // value={editNumber}
                     placeholder={
                       individualContact ? individualContact.number : ''
                     }
@@ -210,7 +205,6 @@ const EditContact = ({
                   <Form.Control
                     size='lg'
                     type='email'
-                    // value={editEmail}
                     placeholder={
                       individualContact ? individualContact.email : ''
                     }
@@ -222,7 +216,6 @@ const EditContact = ({
                   <Form.Control
                     size='lg'
                     type='text'
-                    // value={editCompany}
                     placeholder={
                       individualContact ? individualContact.company : ''
                     }
@@ -234,7 +227,6 @@ const EditContact = ({
                   <Form.Control
                     size='lg'
                     type='text'
-                    // value={editTitle}
                     placeholder={
                       individualContact ? individualContact.title : ''
                     }
@@ -249,7 +241,7 @@ const EditContact = ({
                   onChange={(e) => setEditRelationship(e.target.value)}
                 >
                   <option hidden>
-                    {foundGroupName ? foundGroupName.name : ''}{' '}
+                    {foundGroupName ? foundGroupName.name : ''}
                   </option>
                   {groupData.map((rele) => {
                     return (

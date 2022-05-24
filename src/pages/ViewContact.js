@@ -87,7 +87,7 @@ const ViewContact = ({
       ) : (
         <Container className='position-absolute top-50 start-50 translate-middle border-2 rounded shadow bg-body rounded position-relative w-50 '>
           <Row className='border border-warning border border-2 p-5 d-flex justify-content-between '>
-            <Col className='d-flex justify-content-center '>
+            <Col className='d-flex justify-content-center align-items-center px-5'>
               <img
                 src={individualContact ? individualContact.photo : ''}
                 alt=''
