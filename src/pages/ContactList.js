@@ -19,20 +19,15 @@ import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-// import avatar1 from '../images/man.png';
 import axios from 'axios';
 
-const ContactList = ({
-  loading,
-  setLoading,
-
-  contacts,
-  setContacts,
-}) => {
+const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
   const [search, setSearch] = useState('');
   const [filteredContacts, setFilteredContacts] = useState([]);
   const [show, setShow] = useState(false);
   const [modalIdInfo, setModalIdInfo] = useState();
+  // const [windowLength, setWindowLength] = useState(window.innerWidth);
+  const [resWidth, setResWidth] = useState();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -56,7 +51,7 @@ const ContactList = ({
     data();
   }, []);
 
-  console.log(contacts);
+  // console.log(contacts);
 
   // Search logic
   const filteredItems = useMemo(() => {
@@ -82,6 +77,41 @@ const ContactList = ({
       }
     } catch {}
   };
+
+  // Window length responsive hook
+
+  // Usage
+
+  const size = useWindowSize();
+
+  console.log(size.width);
+
+  // Hook
+  function useWindowSize() {
+    // Initialize state with undefined width/height so server and client renders match
+    // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+    const [windowSize, setWindowSize] = useState({
+      width: undefined,
+      height: undefined,
+    });
+    useEffect(() => {
+      // Handler to call on window resize
+      function handleResize() {
+        // Set window width/height to state
+        setWindowSize({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      }
+      // Add event listener
+      window.addEventListener('resize', handleResize);
+      // Call handler right away so state gets updated with initial window size
+      handleResize();
+      // Remove event listener on cleanup
+      return () => window.removeEventListener('resize', handleResize);
+    }, []); // Empty array ensures that effect is only run on mount
+    return windowSize;
+  }
 
   return (
     <>
@@ -118,12 +148,12 @@ const ContactList = ({
           <Row>
             <Col>
               {contacts.length > 1 && (
-                <InputGroup className='mb-3 mx-2  w-25 d-flex justify-content-evenly'>
+                <InputGroup className='mb-3 mx-2  w-25 d-flex justify-content-evenly search-input '>
                   <FormControl
-                    placeholder='Search Contact'
+                    placeholder={size.width < 576 ? '...' : 'Search Contact' || size.width < 768 ? 'Search' : 'Search Contact'}
                     aria-label='contact'
                     aria-describedby='basic-addon2'
-                    className='fs-4'
+                    className='fs-4 search-input'
                     onChange={(e) => setSearch(e.target.value)}
                   />
                 </InputGroup>
@@ -136,10 +166,10 @@ const ContactList = ({
             {filteredItems.map((contact) => (
               <React.Fragment key={contact.id}>
                 {/* Contact profile information */}
-                <Col className='d-flex justify-content-start w-100'>
-                  <Card className='p-3 m-2'>
+                <Col className='d-flex w-100 g-5 '>
+                  <Card className='p-3 card'>
                     {/* Left of card avatar */}
-                    <Card.Body className='d-flex '>
+                    <Card.Body className='d-flex card-body '>
                       <Col className='d-flex align-items-center p-1 '>
                         <Card.Img
                           variant='top'
@@ -163,15 +193,18 @@ const ContactList = ({
                         </ListGroup>
                       </Col>
                       {/* Right side of card icons */}
-                      <Col className='d-flex  p-1 mx-1 d-flex flex-column justify-content-between align-items-start'>
+                      <Col
+                        className='d-flex p-1 mx-1 d-flex flex-column justify-content-between align-items-start'
+                        id='card-icons'
+                      >
                         {/* View Button */}
-                        <Link to={`/view/${contact.id}`}>
+                        <Link to={`/view/${contact.id}`} className='card-icon'>
                           <Button variant='warning'>
                             <FontAwesomeIcon icon={faEye} />
                           </Button>
                         </Link>
                         {/* Edit button */}
-                        <Link to={`/edit/${contact.id}`}>
+                        <Link to={`/edit/${contact.id}`} className='card-icon'>
                           <Button variant='success'>
                             <FontAwesomeIcon icon={faPen} />
                           </Button>
@@ -184,6 +217,7 @@ const ContactList = ({
                             handleShow();
                             setModalIdInfo(contact.id);
                           }}
+                          className='card-icon'
                         >
                           <FontAwesomeIcon icon={faTrash} />
                         </Button>

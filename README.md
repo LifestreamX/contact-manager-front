@@ -5,14 +5,17 @@
 - axios
 - json-server
 - uuid
+- react-icons
 
 
 TODO: 
 
 
 
-- Save edit contacts issue 
 - responsive 
+   .HomePage
+   .view page
+   . edit page
 - clean up code
 
 

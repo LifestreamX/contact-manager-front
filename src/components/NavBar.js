@@ -9,7 +9,7 @@ const NavBar = () => {
     <Nav
       defaultActiveKey='/home'
       as='ul'
-      className='navbar-dark bg-dark  sticky-top  nav-wrapper'
+      className='navbar-dark bg-dark  w-100 nav-wrapper rounded-bottom '
     >
       <Nav.Item as='li' className='w-100'>
         <Nav.Link as={Link} to={'/'} className='text-white  '>

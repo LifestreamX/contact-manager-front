@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-
-import Button from 'react-bootstrap/Button';
+import { Container } from 'react-bootstrap';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import ContactList from './pages/ContactList';
@@ -26,7 +25,8 @@ function App() {
   const [relationShipInfo, setRelationshipInfo] = useState([]);
 
   return (
-    <div className='app-wrapper'>
+    <Container className='app-wrapper'>
+    
       <NavBar />
       <Routes>
         <Route
@@ -108,7 +108,7 @@ function App() {
           }
         />
       </Routes>
-    </div>
+    </Container>
   );
 }
 

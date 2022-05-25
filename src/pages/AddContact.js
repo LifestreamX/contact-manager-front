@@ -83,10 +83,10 @@ const AddContact = ({
   };
 
   return (
-    <Container className='d-flex flex-column justify-content-center align-items-center my-3 h-100 position-absolute top-50 start-50 translate-middle'>
-      <Row className='border border-primary border border-2 rounded shadow   bg-body rounded position-relative  d-flex flex-column w-50 p-5 '>
+    <Container className='d-flex flex-column justify-content-center align-items-center my-3 h-100'>
+      <Row id='add-contact-row' className='border border-primary border border-2 rounded shadow bg-body rounded position-relative d-flex flex-column w-50 px-5 pb-3 '>
         <Col>
-          <p className=' d-flex justify-content-center fs-4 fw-bolder mt-4  flex-column align-items-center'>
+          <p className=' d-flex justify-content-center fs-4 fw-bolder mt-4  flex-column align-items-center '>
             <span className='text-center add-title fs-1 mb-4'>
               Create Contact
             </span>

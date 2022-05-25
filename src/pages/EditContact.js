@@ -49,7 +49,7 @@ const EditContact = ({
     try {
       setLoading(true);
       let res = await getContactDataById(contactId);
-      setIndividualContact(res.data);
+      // setIndividualContact(res.data);
       setEditName(res.data.name);
       setEditPhoto(res.data.photo);
       setEditNumber(res.data.number);
@@ -261,17 +261,16 @@ const EditContact = ({
               </Form>
             </Col>
           </Row>
-          <Row>
-            <Col>
-              {
-                <img
-                  className='edit-contact-photo'
-                  src={individualContact ? individualContact.photo : ''}
-                  alt=''
-                />
-              }
-            </Col>
-          </Row>
+
+          <Col>
+            {
+              <img
+                className='edit-contact-photo'
+                src={individualContact ? individualContact.photo : ''}
+                alt=''
+              />
+            }
+          </Col>
         </Container>
       )}
     </>

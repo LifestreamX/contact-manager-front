@@ -20,7 +20,6 @@ const ViewContact = ({
   setGroupData,
 }) => {
   const { contactId } = useParams();
-  
 
   // Using id from view contact id to grab data from server
   const getContactDataById = (contactId) => {
@@ -69,7 +68,7 @@ const ViewContact = ({
   // Get the right Group by compareing IDs
 
   const foundGroupName = groupData.find((obj) => {
-    return obj.id ===  individualContact.relationship ;
+    return obj.id === individualContact.relationship;
   });
   console.log(foundGroupName);
 
@@ -85,35 +84,42 @@ const ViewContact = ({
           <span className='visually-hidden'>Loading...</span>
         </Spinner>
       ) : (
-        <Container className='position-absolute top-50 start-50 translate-middle border-2 rounded shadow bg-body rounded position-relative w-50 '>
-          <Row className='border border-warning border border-2 p-5 d-flex justify-content-between '>
+        <Container className='  position-absolute top-50 start-50 translate-middle border-2 rounded shadow bg-body rounded position-relative w-50 '>
+          <Row
+            id='view-contact-container'
+            className='border border-warning border border-2 p-5 d-flex justify-content-between '
+          >
             <Col className='d-flex justify-content-center align-items-center px-5'>
               <img
                 src={individualContact ? individualContact.photo : ''}
                 alt=''
-                className='view-contact-avatar '
+                className='view-contact-avatar'
               />
             </Col>
-            <Col>
-              <ListGroup className='w-100 mb-4 fs-3'>
-                <ListGroup.Item>
+            <Col >
+              <ListGroup className='w-100 mb-4 fs-3 view-list'>
+                <ListGroup.Item className='view-list-item'>
                   Name: {individualContact ? individualContact.name : ''}
                 </ListGroup.Item>
-                <ListGroup.Item>
+                <ListGroup.Item className='view-list-item'>
                   Number: {individualContact ? individualContact.number : ''}
                 </ListGroup.Item>
-                <ListGroup.Item>
+                <ListGroup.Item className='view-list-item'>
                   Email: {individualContact ? individualContact.email : ''}
                 </ListGroup.Item>
-                <ListGroup.Item>
+                <ListGroup.Item className='view-list-item'>
                   Title: {individualContact ? individualContact.title : ''}
                 </ListGroup.Item>
-                <ListGroup.Item>
+                <ListGroup.Item className='view-list-item'>
                   Relationship: {foundGroupName ? foundGroupName.name : ''}
                 </ListGroup.Item>
               </ListGroup>
               <Link to='/'>
-                <Button variant='warning' className='w-75 fs-3'>
+                <Button
+                  variant='warning'
+                  className='w-100 fs-3'
+                  id='view-contact-back-button'
+                >
                   Back
                 </Button>
               </Link>

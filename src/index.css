@@ -10,9 +10,6 @@
  
 } */
 
-.nav-wrapper {
-}
-
 /* NavBar Component */
 .nav-info:hover {
   -webkit-transform: rotate(45deg);
@@ -54,7 +51,7 @@ input[type='number']::-webkit-outer-spin-button {
 /* View contact page */
 
 .view-contact-avatar {
-  height: 350px;
+  height: 300px;
   border-radius: 50px;
 }
 
@@ -66,15 +63,17 @@ input[type='number']::-webkit-outer-spin-button {
 
 /* Edit contact page */
 
-.edit-contact-photo {
-  height: 350px;
-  border-radius: 50px;
-  position: relative;
-}
-
 .edit-contact-wrapper {
   margin-top: 10px !important;
-  margin-left: 500px !important;
+  position: absolute;
+  left: 33%;
+}
+
+.edit-contact-photo {
+  height: 300px;
+  margin-left: 50px;
+  border-radius: 50px;
+  /* position: relative; */
 }
 
 /* Delete Modal */
@@ -91,4 +90,100 @@ input[type='number']::-webkit-outer-spin-button {
 
 .modal-content {
   border: none !important;
+}
+
+@media (max-width: 576px) {
+  /* Home page */
+
+  .card-body {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  #card-icons {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-icon {
+    margin-top: 13px;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  /* Add contact page */
+  #add-contact-row {
+    padding: 0 !important;
+    width: 75% !important;
+  }
+
+  /* View contact */
+
+  .view-contact-avatar {
+    height: 100px;
+    margin-bottom: 20px;
+  }
+
+  .list-group-item {
+    font-size: 18px;
+  }
+
+  #view-contact-back-button {
+    font-size: 15px !important;
+  }
+
+  .view-list {
+    width: 200px;
+    background: none !important;
+    border: none !important;
+  }
+
+  .view-list-item {
+    background: none !important;
+    border: none !important;
+  }
+
+  /* Edit contact */
+
+  .edit-contact-photo {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-body {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  #card-icons {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-icon {
+    margin-top: 13px;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  /* Edit contact */
+  .edit-contact-photo {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  /* Edit contact */
+  .edit-contact-photo {
+    display: none;
+  }
 }
