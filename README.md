@@ -12,9 +12,8 @@ Contact Manager
 
 ## Screenshots
 
-`![Writing](https://unsplash.com/photos/VBPzRgd7gfc)`
+![Writing](https://unsplash.com/photos/VBPzRgd7gfc)
 
-Picture by [Kelly Sikkema](https://unsplash.com/@kellysikkema)
 
 ## Technologies
 
