@@ -14,20 +14,20 @@ import {
   Alert,
 } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { faEye } from '@fortawesome/free-solid-svg-icons';
-import { faPen } from '@fortawesome/free-solid-svg-icons';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import {
+  faPlus,
+  faEye,
+  faPen,
+  faTrash,
+} from '@fortawesome/free-solid-svg-icons';
+
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
   const [search, setSearch] = useState('');
-  const [filteredContacts, setFilteredContacts] = useState([]);
   const [show, setShow] = useState(false);
   const [modalIdInfo, setModalIdInfo] = useState();
-  // const [windowLength, setWindowLength] = useState(window.innerWidth);
-  const [resWidth, setResWidth] = useState();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -42,7 +42,6 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
   const data = async () => {
     setLoading(true);
     let res = await grabServerContactData();
-    // console.log(res.data);
     setContacts(res.data);
     setLoading(false);
   };
@@ -50,8 +49,6 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
   useEffect(() => {
     data();
   }, []);
-
-  // console.log(contacts);
 
   // Search logic
   const filteredItems = useMemo(() => {
@@ -79,14 +76,8 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
   };
 
   // Window length responsive hook
-
-  // Usage
-
   const size = useWindowSize();
 
-  console.log(size.width);
-
-  // Hook
   function useWindowSize() {
     // Initialize state with undefined width/height so server and client renders match
     // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
@@ -170,7 +161,7 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
               <React.Fragment key={contact.id}>
                 {/* Contact profile information */}
                 <Col className='d-flex w-100 g-5 '>
-                  <Card className='p-3 card'>
+                  <Card className='p-3 w-100 card'>
                     {/* Left of card avatar */}
                     <Card.Body className='d-flex card-body '>
                       <Col className='d-flex align-items-center p-1 '>

@@ -20,7 +20,6 @@ const EditContact = ({
   setLoading,
   setErrorMessage,
   individualContact,
-  setIndividualContact,
   groupData,
   setGroupData,
 }) => {
@@ -35,8 +34,6 @@ const EditContact = ({
   const [userId, setUserId] = useState();
   const [editRelationShip, setEditRelationship] = useState();
 
-  // console.log(individualContact.name)
-  console.log(editName);
 
   // Using id from view contact id to grab data from server
   const getContactDataById = (contactId) => {
@@ -69,7 +66,6 @@ const EditContact = ({
     settingContactData();
   }, [contactId]);
 
-  // ********************************************************************************
 
   // Matching group number to groups to display group name
   const grabGroupData = () => {
@@ -82,7 +78,6 @@ const EditContact = ({
     try {
       let res = await grabGroupData();
       setGroupData(res.data);
-      // console.log(groupData);
     } catch (error) {
       setErrorMessage('Error');
     }
@@ -96,7 +91,6 @@ const EditContact = ({
     return obj.id === individualContact ? individualContact.relationship : '';
   });
 
-  // ****************************************************************
 
   const contactInfo = {
     id: userId,
@@ -124,12 +118,10 @@ const EditContact = ({
         navigate('/', { replace: true });
       }
     } catch (error) {
-      // errorMessage();
       navigate(`/edit/${contactId}`, { replace: false });
     }
   };
 
-  // console.log(groupData)
 
   return (
     <>

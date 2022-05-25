@@ -26,7 +26,6 @@ function App() {
 
   return (
     <Container className='app-wrapper'>
-    
       <NavBar />
       <Routes>
         <Route
@@ -73,9 +72,6 @@ function App() {
             <ViewContact
               loading={loading}
               setLoading={setLoading}
-              contacts={contacts}
-              setContacts={setContacts}
-              errorMessage={errorMessage}
               setErrorMessage={setErrorMessage}
               individualContact={individualContact}
               setIndividualContact={setIndividualContact}
@@ -90,20 +86,10 @@ function App() {
             <EditContact
               loading={loading}
               setLoading={setLoading}
-              contacts={contacts}
-              setContacts={setContacts}
-              errorMessage={errorMessage}
               setErrorMessage={setErrorMessage}
               individualContact={individualContact}
-              setIndividualContact={setIndividualContact}
               groupData={groupData}
               setGroupData={setGroupData}
-              setNumber={setNumber}
-              setEmail={setEmail}
-              setCompany={setCompany}
-              setTitle={setTitle}
-              setRelationship={setRelationship}
-              relationShipInfo={relationShipInfo}
             />
           }
         />

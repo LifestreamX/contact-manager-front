@@ -43,8 +43,7 @@ const AddContact = ({
   const settingGroupData = async () => {
     let res = await grabRelationshipsData();
     setRelationshipInfo(res.data);
-    // setGroupData(res.data);
-    // console.log(groupData);
+    
   };
 
   useEffect(() => {

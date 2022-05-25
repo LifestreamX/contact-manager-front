@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {
   Col,
   Container,
@@ -34,7 +34,6 @@ const ViewContact = ({
       let res = await getContactDataById(contactId);
       setLoading(false);
       setIndividualContact(res.data);
-      // console.log(individualContact.relationship);
     } catch (error) {
       setLoading(false);
       setErrorMessage('Error');
@@ -72,7 +71,6 @@ const ViewContact = ({
       ? individualContact.relationship
       : individualContact;
   });
-  console.log(foundGroupName);
 
   return (
     <>

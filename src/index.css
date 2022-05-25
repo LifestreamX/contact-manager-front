@@ -27,10 +27,11 @@
   background-color: whitesmoke;
 }
 
+
+
 .avatar-images {
   width: 135px !important;
-
-  border-radius: 100px !important;
+  border-radius: 20px !important;
 }
 
 /* Add contact component */
@@ -49,7 +50,6 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 /* View contact page */
-
 .view-contact-avatar {
   height: 300px;
   border-radius: 50px;
