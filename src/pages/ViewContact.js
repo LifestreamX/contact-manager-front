@@ -68,7 +68,9 @@ const ViewContact = ({
   // Get the right Group by compareing IDs
 
   const foundGroupName = groupData.find((obj) => {
-    return obj.id === individualContact.relationship;
+    return obj.id === individualContact
+      ? individualContact.relationship
+      : individualContact;
   });
   console.log(foundGroupName);
 
@@ -84,7 +86,7 @@ const ViewContact = ({
           <span className='visually-hidden'>Loading...</span>
         </Spinner>
       ) : (
-        <Container className='  position-absolute top-50 start-50 translate-middle border-2 rounded shadow bg-body rounded position-relative w-50 '>
+        <Container className='  position-absolute top-50 start-50 translate-middle border-2 rounded shadow bg-body rounded position-relative w-50 view-contact-wrapper' id='view-contact'>
           <Row
             id='view-contact-container'
             className='border border-warning border border-2 p-5 d-flex justify-content-between '
@@ -96,7 +98,7 @@ const ViewContact = ({
                 className='view-contact-avatar'
               />
             </Col>
-            <Col >
+            <Col>
               <ListGroup className='w-100 mb-4 fs-3 view-list'>
                 <ListGroup.Item className='view-list-item'>
                   Name: {individualContact ? individualContact.name : ''}

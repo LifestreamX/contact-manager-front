@@ -143,8 +143,11 @@ const EditContact = ({
           <span className='visually-hidden'>Loading...</span>
         </Spinner>
       ) : (
-        <Container className='d-flex  justify-content-between align-items-center position-absolute edit-contact-wrapper mt-5 '>
-          <Row className='border border-success border border-2 rounded shadow bg-body rounded position-relative  d-flex flex-column w-50 pb-5 px-5'>
+        <Container className=' d-flex edit-contact-wrapper mt-5 w-100  '>
+          <Row
+            className='position-absolute top-50 start-50 translate-middle border border-success border border-2 rounded shadow bg-body rounded position-relative  d-flex flex-column w-50 pb-5 px-5'
+            id='edit-contact'
+          >
             <Col>
               <p className=' d-flex justify-content-center fs-4 fw-bolder mt-4  flex-column align-items-center'>
                 <span className='text-center add-title fs-1 mb-4'>
@@ -173,9 +176,7 @@ const EditContact = ({
                   <Form.Control
                     size='lg'
                     type='text'
-                    placeholder={
-                      individualContact ? individualContact.name : ''
-                    }
+                    value={editName}
                     onChange={(e) => setEditName(e.target.value)}
                   />
                 </Form.Group>
@@ -183,9 +184,7 @@ const EditContact = ({
                   <Form.Label>Photo Url</Form.Label>
                   <Form.Control
                     size='lg'
-                    placeholder={
-                      individualContact ? individualContact.photo : ''
-                    }
+                    value={editPhoto}
                     onChange={(e) => setEditPhoto(e.target.value)}
                   />
                 </Form.Group>
@@ -194,9 +193,7 @@ const EditContact = ({
                   <Form.Control
                     size='lg'
                     type='tel'
-                    placeholder={
-                      individualContact ? individualContact.number : ''
-                    }
+                    value={editNumber}
                     onChange={(e) => setEditNumber(e.target.value)}
                   />
                 </Form.Group>
@@ -205,9 +202,7 @@ const EditContact = ({
                   <Form.Control
                     size='lg'
                     type='email'
-                    placeholder={
-                      individualContact ? individualContact.email : ''
-                    }
+                    value={editEmail}
                     onChange={(e) => setEditEmail(e.target.value)}
                   />
                 </Form.Group>
@@ -216,9 +211,7 @@ const EditContact = ({
                   <Form.Control
                     size='lg'
                     type='text'
-                    placeholder={
-                      individualContact ? individualContact.company : ''
-                    }
+                    value={editCompany}
                     onChange={(e) => setEditCompany(e.target.value)}
                   />
                 </Form.Group>
@@ -227,9 +220,7 @@ const EditContact = ({
                   <Form.Control
                     size='lg'
                     type='text'
-                    placeholder={
-                      individualContact ? individualContact.title : ''
-                    }
+                    value={editTitle}
                     onChange={(e) => setEditTitle(e.target.value)}
                   />
                 </Form.Group>
@@ -238,6 +229,7 @@ const EditContact = ({
                 <Form.Select
                   aria-label='Default select example'
                   size='lg'
+                  value={editRelationShip}
                   onChange={(e) => setEditRelationship(e.target.value)}
                 >
                   <option hidden>
@@ -261,16 +253,6 @@ const EditContact = ({
               </Form>
             </Col>
           </Row>
-
-          <Col>
-            {
-              <img
-                className='edit-contact-photo'
-                src={individualContact ? individualContact.photo : ''}
-                alt=''
-              />
-            }
-          </Col>
         </Container>
       )}
     </>

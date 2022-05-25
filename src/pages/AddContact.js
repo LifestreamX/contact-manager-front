@@ -83,7 +83,7 @@ const AddContact = ({
   };
 
   return (
-    <Container className='d-flex flex-column justify-content-center align-items-center my-3 h-100'>
+    <Container className='d-flex flex-column justify-content-center align-items-center my-3 h-100 mt-5'>
       <Row id='add-contact-row' className='border border-primary border border-2 rounded shadow bg-body rounded position-relative d-flex flex-column w-50 px-5 pb-3 '>
         <Col>
           <p className=' d-flex justify-content-center fs-4 fw-bolder mt-4  flex-column align-items-center '>
@@ -93,7 +93,7 @@ const AddContact = ({
             <ProgressBar animated now={100} className='w-100' />
           </p>
 
-          <Link to='/' className='position-absolute top-0 end-0 mx-3 my-1'>
+          <Link to='/' className='position-absolute top-0 end-0 mx-3 my-2'>
             <FontAwesomeIcon
               icon={faX}
               className='cancel-new-contact-icon text-dark'

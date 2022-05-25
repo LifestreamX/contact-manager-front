@@ -1,3 +1,20 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 - React
 - Bootstrap
 - React-Router-dom
@@ -5,18 +22,26 @@
 - axios
 - json-server
 - uuid
-- react-icons
-
-
-TODO: 
 
 
 
-- responsive 
-   .HomePage
-   .view page
-   . edit page
-- clean up code
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

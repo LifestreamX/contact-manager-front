@@ -146,11 +146,14 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
           </Row>
           {/* Input to search for Contacts */}
           <Row>
-            <Col>
+            <Col classname='search-col'>
               {contacts.length > 1 && (
-                <InputGroup className='mb-3 mx-2  w-25 d-flex justify-content-evenly search-input '>
+                <InputGroup
+                  className='mb-3 mx-2  w-25 d-flex justify-content-evenly'
+                  id='search-input'
+                >
                   <FormControl
-                    placeholder={size.width < 576 ? '...' : 'Search Contact' || size.width < 768 ? 'Search' : 'Search Contact'}
+                    placeholder={'Search Contact ...'}
                     aria-label='contact'
                     aria-describedby='basic-addon2'
                     className='fs-4 search-input'
@@ -183,12 +186,15 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
                         xs={7}
                       >
                         <ListGroup className='fs-5'>
-                          <ListGroup.Item>Name: {contact.name}</ListGroup.Item>
                           <ListGroup.Item>
-                            Phone Number: {contact.number}
+                            Name:{size.width < 768 && <br />} {contact.name}
                           </ListGroup.Item>
                           <ListGroup.Item>
-                            Email: {contact.email}
+                            Phone Number: {size.width < 768 && <br />}{' '}
+                            {contact.number}
+                          </ListGroup.Item>
+                          <ListGroup.Item>
+                            Email: {size.width < 768 && <br />} {contact.email}
                           </ListGroup.Item>
                         </ListGroup>
                       </Col>
@@ -231,8 +237,8 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
                           <Modal.Header closeButton></Modal.Header>
                           <Modal.Body>
                             <Alert variant='danger' className='fs-4 text-black'>
-                              Are you sure you want to permanently delete
-                              contact this contact?
+                              Are you sure you want to permanently delete this
+                              contact?
                             </Alert>
                           </Modal.Body>
                           <Modal.Footer className='d-flex justify-content-center'>
