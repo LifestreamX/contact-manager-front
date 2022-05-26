@@ -20,28 +20,16 @@ Contact Manager
 ## Technologies
 
   <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original-wordmark.svg" title="React" alt="React" width="40" height="40"/>&nbsp;
-
-
-
-
+  <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-original-wordmark.svg" title="React" alt="React" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="React" alt="React" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original-wordmark.svg" title="React" alt="React" width="40" height="40"/>&nbsp;
-
-
-
-## Setup
-
-- download or clone the repository
-- run `npm install`
-- ...
+  <img src="https://github.com/devicons/devicon/blob/master/icons/bootstrap/bootstrap-original-wordmark.svg" title="React" alt="React" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/bootstrap/bootstrap-original-wordmark.svg" title="React" alt="React" width="40" height="40"/>&nbsp;
 
 ## Approach
 
-I adopted the `BEM` naming style for my css class names and ...
+Build with React and styled with Bootstrap along with using a Fake Rest API JSON Server. react router was used to navigate between pages and axios used to fetch data from the JSON server database. Fontawsome was used for the icons.
 
-- React
-- Bootstrap
-- React-Router-dom
-- Fontawesome
-- axios
-- json-server
-- uuid
+
+
+
