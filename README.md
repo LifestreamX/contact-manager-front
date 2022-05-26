@@ -8,7 +8,7 @@ Contact Manager
 
 ## About The App
 
-[Contact Manager] is an app that that allows you to maintain contact information using a fake REST API on a JSON server database with details of each individual contact. You can create a contact and once created you can view the contact, edit and delete the contact of choice. you can also filter the contact through input using the name of the contact as a search result.
+[Contact Manager] is an mobile responsive app that that allows you to maintain contact information using a fake REST API on a JSON server database with details of each individual contact. You can create a contact and once created you can view the contact, edit and delete the contact of choice. you can also filter the contact through input using the name of the contact as a search result.
 
 ## Screenshots
 
@@ -27,7 +27,7 @@ Contact Manager
 
 ## Approach
 
-Built with React and styled with Bootstrap along with using a Fake Rest API JSON Server. react router was used to navigate between pages and axios used to fetch data from the JSON server database. Fontawsome was used for the icons. Mobile friendly.
+Built with React and styled with Bootstrap along with using a Fake Rest API JSON Server. react router was used to navigate between pages and axios used to fetch data from the JSON server database. Fontawsome was used for the icons.
 
 
 
