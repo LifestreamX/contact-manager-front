@@ -12,8 +12,10 @@ Contact Manager
 
 ## Screenshots
 
-![Writing](https://unsplash.com/photos/VBPzRgd7gfc)
-
+![](screenshots/home.png)
+![](screenshots/add.png)
+![](screenshots/edit.png)
+![](screenshots/view.png)
 
 ## Technologies
 
