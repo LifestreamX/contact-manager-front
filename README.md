@@ -27,7 +27,7 @@ Contact Manager
 
 ## Approach
 
-Build with React and styled with Bootstrap along with using a Fake Rest API JSON Server. react router was used to navigate between pages and axios used to fetch data from the JSON server database. Fontawsome was used for the icons.
+Built with React and styled with Bootstrap along with using a Fake Rest API JSON Server. react router was used to navigate between pages and axios used to fetch data from the JSON server database. Fontawsome was used for the icons. Mobile friendly.
 
 
 
