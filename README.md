@@ -12,10 +12,10 @@ Contact Manager
 
 ## Screenshots
 
-![](screenshots/home.png)
-![](screenshots/add.png)
-![](screenshots/edit.png)
-![](screenshots/view.png)
+![]()
+![]()
+![]()
+![]()
 
 ## Technologies
 
