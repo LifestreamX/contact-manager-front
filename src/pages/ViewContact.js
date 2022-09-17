@@ -23,7 +23,7 @@ const ViewContact = ({
 
   // Using id from view contact id to grab data from server
   const getContactDataById = (contactId) => {
-    const serverURL = 'http://localhost:9000';
+    const serverURL = 'https://contact-manager-site.herokuapp.com';
     let dataURL = `${serverURL}/contacts/${contactId}`;
     return axios.get(dataURL);
   };
