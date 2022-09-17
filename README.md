@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-- React
-- Bootstrap
-- React-Router-dom
-- Fontawesome
-- axios
-- json-server
-=======
 # Project Title
 
 Contact Manager
@@ -36,7 +28,6 @@ Contact Manager
 ## Approach
 
 Built with React and styled with Bootstrap along with using a Fake Rest API JSON Server. react router was used to navigate between pages and axios used to fetch data from the JSON server database. Fontawsome was used for the icons.
->>>>>>> 91f3c00758a4259e0ef65735d9086e69185c470f
 
 
 
