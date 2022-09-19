@@ -61,7 +61,7 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
 
   // Delete logic
   const deleteContact = (contactId) => {
-    const serverURL = process.env.PORT;
+    const serverURL = 'http://localhost:9000';
     let dataURL = `${serverURL}/contacts/${contactId}`;
     return axios.delete(dataURL);
   };
