@@ -61,7 +61,7 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
 
   // Delete logic
   const deleteContact = (contactId) => {
-    const serverURL = 'http://localhost:9000';
+    const serverURL = 'https://contact-manager-site.herokuapp.com';
     let dataURL = `${serverURL}/contacts/${contactId}`;
     return axios.delete(dataURL);
   };

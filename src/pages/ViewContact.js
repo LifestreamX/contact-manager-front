@@ -23,8 +23,7 @@ const ViewContact = ({
 
   // Using id from view contact id to grab data from server
   const getContactDataById = (contactId) => {
-    
-    const serverURL = 'http://localhost:9000';
+    const serverURL = 'https://contact-manager-site.herokuapp.com';
     let dataURL = `${serverURL}/contacts/${contactId}`;
     return axios.get(dataURL);
   };
@@ -47,7 +46,8 @@ const ViewContact = ({
 
   // Matching group number to groups to display group name
   const grabGroupData = () => {
-    const serverURL = 'http://localhost:9000';
+    // const serverURL = '  http://localhost:9000';
+    const serverURL = 'https://contact-manager-site.herokuapp.com';
     let dataURL = `${serverURL}/groups`;
     return axios.get(dataURL);
   };
@@ -85,7 +85,10 @@ const ViewContact = ({
           <span className='visually-hidden'>Loading...</span>
         </Spinner>
       ) : (
-        <Container className='  position-absolute top-50 start-50 translate-middle border-2 rounded shadow bg-body rounded position-relative w-50 view-contact-wrapper' id='view-contact'>
+        <Container
+          className='  position-absolute top-50 start-50 translate-middle border-2 rounded shadow bg-body rounded position-relative w-50 view-contact-wrapper'
+          id='view-contact'
+        >
           <Row
             id='view-contact-container'
             className='border border-warning border border-2 p-5 d-flex justify-content-between '
