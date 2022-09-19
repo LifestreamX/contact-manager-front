@@ -34,7 +34,7 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
 
   // Grabbing contact data on original page load
   const grabServerContactData = () => {
-    const serverURL = 'https://contact-manager-site.herokuapp.com';
+    const serverURL = 'http://localhost:9000';
     let dataURL = `${serverURL}/contacts`;
     return axios.get(dataURL);
   };
