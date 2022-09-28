@@ -21,6 +21,7 @@ const ViewContact = ({
 }) => {
   const { contactId } = useParams();
 
+  // update
   // Using id from view contact id to grab data from server
   const getContactDataById = (contactId) => {
     const serverURL = '';
