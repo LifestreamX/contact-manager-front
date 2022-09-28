@@ -23,7 +23,7 @@ const ViewContact = ({
 
   // Using id from view contact id to grab data from server
   const getContactDataById = (contactId) => {
-    const serverURL = 'https://contact-manager-back.onrender.com';
+    const serverURL = '';
     let dataURL = `${serverURL}/contacts/${contactId}`;
     return axios.get(dataURL);
   };
