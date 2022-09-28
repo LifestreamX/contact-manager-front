@@ -34,7 +34,7 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
 
   // Grabbing contact data on original page load
   const grabServerContactData = () => {
-    const serverURL = 'https://contact-manager-site.herokuapp.com';
+    const serverURL = 'https://contact-manager-back.onrender.com';
     let dataURL = `${serverURL}/contacts`;
     return axios.get(dataURL);
   };
@@ -61,7 +61,7 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
 
   // Delete logic
   const deleteContact = (contactId) => {
-    const serverURL = 'https://contact-manager-site.herokuapp.com';
+    const serverURL = 'https://contact-manager-back.onrender.com';
     let dataURL = `${serverURL}/contacts/${contactId}`;
     return axios.delete(dataURL);
   };

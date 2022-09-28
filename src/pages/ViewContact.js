@@ -47,7 +47,7 @@ const ViewContact = ({
   // Matching group number to groups to display group name
   const grabGroupData = () => {
     // const serverURL = '  http://localhost:9000';
-    const serverURL = '';
+    const serverURL = 'https://contact-manager-back.onrender.com';
     let dataURL = `${serverURL}/groups`;
     return axios.get(dataURL);
   };

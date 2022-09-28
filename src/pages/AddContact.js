@@ -35,7 +35,7 @@ const AddContact = ({
   let navigate = useNavigate();
 
   const grabRelationshipsData = () => {
-    const serverURL = 'https://contact-manager-site.herokuapp.com';
+    const serverURL = 'https://contact-manager-back.onrender.com';
     let dataURL = `${serverURL}/groups`;
     return axios.get(dataURL);
   };
@@ -63,7 +63,7 @@ const AddContact = ({
   };
 
   const createContact = (contactInfo) => {
-    const serverURL = 'https://contact-manager-site.herokuapp.com';
+    const serverURL = 'https://contact-manager-back.onrender.com';
     let dataURL = `${serverURL}/contacts`;
     return axios.post(dataURL, contactInfo);
   };
