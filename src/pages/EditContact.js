@@ -124,14 +124,16 @@ const EditContact = ({
   return (
     <>
       {loading ? (
-        <Spinner
-          animation='border'
-          role='status'
-          className='loading-spinner '
-          style={{ width: '120px', height: '120px' }}
-        >
-          <span className='visually-hidden'>Loading...</span>
-        </Spinner>
+        <div className='spinner-wrapper'>
+          <Spinner
+            animation='border'
+            role='status'
+            className='loading-spinner '
+            style={{ width: '120px', height: '120px' }}
+          >
+            <span className='visually-hidden'>Loading...</span>
+          </Spinner>
+        </div>
       ) : (
         <Container
           id='edit'
