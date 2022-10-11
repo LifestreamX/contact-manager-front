@@ -35,6 +35,8 @@ const AddContact = ({
   let navigate = useNavigate();
 
   const grabRelationshipsData = () => {
+    // const serverURL = '  http://localhost:9000';
+
     const serverURL = 'https://contact-manager-back.onrender.com';
     let dataURL = `${serverURL}/groups`;
     return axios.get(dataURL);

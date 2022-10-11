@@ -27,8 +27,6 @@
   background-color: whitesmoke;
 }
 
-
-
 .avatar-images {
   width: 135px !important;
   border-radius: 20px !important;
@@ -50,15 +48,23 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 /* View contact page */
-.view-contact-avatar {
-  height: 300px;
-  border-radius: 50px;
+
+.avatar-wrapper {
+  object-fit: contain;
 }
 
-.loading-spinner {
+.view-contact-avatar {
+  width: 300px;
+  object-fit: contain;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
+.spinner-wrapper {
   position: absolute;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* Edit contact page */
@@ -66,7 +72,8 @@ input[type='number']::-webkit-outer-spin-button {
 .edit-contact-wrapper {
   margin-top: 10px !important;
   position: absolute;
-  top: 600px;
+
+  top: 50%;
 }
 
 .edit-contact-photo {
@@ -92,74 +99,11 @@ input[type='number']::-webkit-outer-spin-button {
   border: none !important;
 }
 
-@media (max-width: 576px) {
-  /* Home page */
-
-  .card-body {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-  }
-
-  #card-icons {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .card-icon {
-    margin-top: 13px;
-    margin-left: 8px;
-    margin-right: 8px;
-  }
-
-  /* Add contact page */
-  #add-contact-row {
-    padding: 0 !important;
-    width: 75% !important;
-  }
-
-  /* View contact */
-
-  .view-contact-avatar {
-    height: 100px;
-    margin-bottom: 20px;
-  }
-
-  .list-group-item {
-    font-size: 18px;
-  }
-
-  #view-contact-back-button {
-    font-size: 15px !important;
-  }
-
-  .view-list {
-    width: 200px;
-    background: none !important;
-    border: none !important;
-  }
-
-  .view-list-item {
-    background: none !important;
-    border: none !important;
-  }
-
-  /* Edit contact */
-
-  .edit-contact-photo {
-    display: none;
-  }
-}
+/* RESPONSIVE */
 
 @media (max-width: 768px) {
   .contact-list-section {
-  }
-
-  .card {
-    width: 400px;
+    width: 100%;
   }
 
   .search-col {
@@ -191,30 +135,54 @@ input[type='number']::-webkit-outer-spin-button {
   }
 
   /* Edit contact */
+
+  #edit-contact {
+    width: 95% !important;
+    top: 200px !important;
+  }
+
   .edit-contact-photo {
     display: none;
   }
-}
 
-@media (max-width: 992px) {
-  /* Edit contact */
-  .edit-contact-photo {
-    display: none;
-  }
-}
+  /* View contact */
 
-@media (max-width: 414px) and (max-height: 896px) {
   #view-contact {
-    width: 300px !important;
+    width: 95% !important;
+    margin-top: 80px;
+    padding: 10px;
   }
 
-  .edit-contact-wrapper {
+  .view-contact-avatar {
+    width: 200px;
+  }
+
+  /* Add contact */
+  #add-contact-row {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .contact-list-wrapper {
+    display: flex;
+    top: 950px !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contact-list-section {
+    position: absolute;
+    width: 100% !important;
+    background-color: whitesmoke !important;
+  }
+
+  .card {
     width: 100% !important;
   }
 
-  #edit-contact {
-    width: 300px !important;
-    position: relative;
-    right: 80px;
+  .card-body {
+    width: 100% !important;
   }
 }

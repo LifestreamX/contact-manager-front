@@ -34,7 +34,6 @@ const EditContact = ({
   const [userId, setUserId] = useState();
   const [editRelationShip, setEditRelationship] = useState();
 
-
   // Using id from view contact id to grab data from server
   const getContactDataById = (contactId) => {
     const serverURL = 'https://contact-manager-back.onrender.com';
@@ -66,7 +65,6 @@ const EditContact = ({
     settingContactData();
   }, [contactId]);
 
-
   // Matching group number to groups to display group name
   const grabGroupData = () => {
     const serverURL = 'https://contact-manager-back.onrender.com';
@@ -91,7 +89,6 @@ const EditContact = ({
     return obj.id === individualContact ? individualContact.relationship : '';
   });
 
-
   const contactInfo = {
     id: userId,
     name: editName,
@@ -105,6 +102,8 @@ const EditContact = ({
 
   const EditContact = (contactInfo) => {
     const serverURL = 'https://contact-manager-back.onrender.com';
+    // const serverURL = '  http://localhost:9000';
+
     let dataURL = `${serverURL}/contacts/${contactId}`;
     return axios.put(dataURL, contactInfo);
   };
@@ -122,7 +121,6 @@ const EditContact = ({
     }
   };
 
-
   return (
     <>
       {loading ? (
@@ -135,7 +133,10 @@ const EditContact = ({
           <span className='visually-hidden'>Loading...</span>
         </Spinner>
       ) : (
-        <Container className=' d-flex edit-contact-wrapper mt-5 w-100  '>
+        <Container
+          id='edit'
+          className=' d-flex edit-contact-wrapper mt-5 w-100  '
+        >
           <Row
             className='position-absolute top-50 start-50 translate-middle border border-success border border-2 rounded shadow bg-body rounded position-relative  d-flex flex-column w-50 pb-5 px-5'
             id='edit-contact'

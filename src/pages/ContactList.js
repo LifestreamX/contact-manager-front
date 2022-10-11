@@ -61,6 +61,8 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
 
   // Delete logic
   const deleteContact = (contactId) => {
+    // const serverURL = '  http://localhost:9000';
+
     const serverURL = 'https://contact-manager-back.onrender.com';
     let dataURL = `${serverURL}/contacts/${contactId}`;
     return axios.delete(dataURL);
@@ -104,18 +106,21 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
     return windowSize;
   }
 
+  console.log(contacts);
   return (
     <>
       {/* While data is loading spinner */}
       {loading ? (
-        <Spinner
-          animation='border'
-          role='status'
-          className='loading-spinner '
-          style={{ width: '120px', height: '120px' }}
-        >
-          <span className='visually-hidden'>Loading...</span>
-        </Spinner>
+        <div className='spinner-wrapper'>
+          <Spinner
+            animation='border'
+            role='status'
+            className='loading-spinner '
+            style={{ width: '120px', height: '120px' }}
+          >
+            <span className='visually-hidden'>Loading...</span>
+          </Spinner>
+        </div>
       ) : (
         <Container className='contact-list-wrapper position-relative  px-5 py-4 '>
           <Row>
@@ -173,7 +178,7 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
                       </Col>
                       {/* Middle of card information */}
                       <Col
-                        className='d-flex align-items-center justify-content-center   p-1'
+                        className='card-info d-flex align-items-center justify-content-center p-1'
                         xs={7}
                       >
                         <ListGroup className='fs-5'>

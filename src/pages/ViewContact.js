@@ -24,7 +24,9 @@ const ViewContact = ({
   // update
   // Using id from view contact id to grab data from server
   const getContactDataById = (contactId) => {
-    const serverURL = '';
+    const serverURL = '  http://localhost:9000';
+
+    // const serverURL = 'https://contact-manager-back.onrender.com';
     let dataURL = `${serverURL}/contacts/${contactId}`;
     return axios.get(dataURL);
   };
@@ -74,30 +76,36 @@ const ViewContact = ({
       : individualContact;
   });
 
+  setTimeout(() => {
+    console.log(individualContact);
+  }, 4000);
+
   return (
     <>
       {loading ? (
-        <Spinner
-          animation='border'
-          role='status'
-          className='loading-spinner '
-          style={{ width: '120px', height: '120px' }}
-        >
-          <span className='visually-hidden'>Loading...</span>
-        </Spinner>
+        <div className='spinner-wrapper'>
+          <Spinner
+            animation='border'
+            role='status'
+            className='loading-spinner '
+            style={{ width: '120px', height: '120px' }}
+          >
+            <span className='visually-hidden'>Loading...</span>
+          </Spinner>
+        </div>
       ) : (
         <Container
-          className='  position-absolute top-50 start-50 translate-middle border-2 rounded shadow bg-body rounded position-relative w-50 view-contact-wrapper'
+          className='  position-absolute top-50 start-50 translate-middle border-2 rounded shadow bg-body rounded  w-50 view-contact-wrapper'
           id='view-contact'
         >
           <Row
             id='view-contact-container'
             className='border border-warning border border-2 p-5 d-flex justify-content-between '
           >
-            <Col className='d-flex justify-content-center align-items-center px-5'>
+            <Col className='avatar-wrapper d-flex justify-content-center align-items-center px-5'>
               <img
                 src={individualContact ? individualContact.photo : ''}
-                alt=''
+                alt={individualContact?.name}
                 className='view-contact-avatar'
               />
             </Col>
