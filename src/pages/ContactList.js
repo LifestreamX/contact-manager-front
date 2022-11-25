@@ -122,7 +122,7 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
           </Spinner>
         </div>
       ) : (
-        <Container className='contact-list-wrapper position-relative  px-5 py-4 '>
+        <Container className=' contact-list-wrapper position-relative  px-5 py-4 '>
           <Row>
             <Col className=' mx-2'>
               <div className='d-flex justify-content-start align-items-center my-5 '>
@@ -165,94 +165,106 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
             {filteredItems.map((contact) => (
               <React.Fragment key={contact.id}>
                 {/* Contact profile information */}
-                <Col className='d-flex w-100 g-5 '>
-                  <Card className='p-3 w-100 card'>
-                    {/* Left of card avatar */}
-                    <Card.Body className='d-flex card-body '>
-                      <Col className='d-flex align-items-center p-1 '>
-                        <Card.Img
-                          variant='top'
-                          src={contact.photo}
-                          className='avatar-images '
-                        />
-                      </Col>
-                      {/* Middle of card information */}
-                      <Col
-                        className='card-info d-flex align-items-center justify-content-center p-1'
-                        xs={7}
-                      >
-                        <ListGroup className='fs-5'>
-                          <ListGroup.Item>
-                            Name:{size.width < 768 && <br />} {contact.name}
-                          </ListGroup.Item>
-                          <ListGroup.Item>
-                            Phone Number: {size.width < 768 && <br />}{' '}
-                            {contact.number}
-                          </ListGroup.Item>
-                          <ListGroup.Item>
-                            Email: {size.width < 768 && <br />} {contact.email}
-                          </ListGroup.Item>
-                        </ListGroup>
-                      </Col>
-                      {/* Right side of card icons */}
-                      <Col
-                        className='d-flex p-1 mx-1 d-flex flex-column justify-content-between align-items-start'
-                        id='card-icons'
-                      >
-                        {/* View Button */}
-                        <Link to={`/view/${contact.id}`} className='card-icon'>
-                          <Button variant='warning'>
-                            <FontAwesomeIcon icon={faEye} />
-                          </Button>
-                        </Link>
-                        {/* Edit button */}
-                        <Link to={`/edit/${contact.id}`} className='card-icon'>
-                          <Button variant='success'>
-                            <FontAwesomeIcon icon={faPen} />
-                          </Button>
-                        </Link>
-
-                        {/* Modal for delete confirm */}
-                        <Button
-                          variant='danger'
-                          onClick={() => {
-                            handleShow();
-                            setModalIdInfo(contact.id);
-                          }}
-                          className='card-icon'
+                <Col className='d-flex w-100 g-5 card-col contact-row '>
+                  <Row className='w-100 '>
+                    <Card className='p-3 w-100 card'>
+                      {/* Left of card avatar */}
+                      <Card.Body className='d-flex card-body w-100 '>
+                        <Col className='d-flex align-items-center p-1 '>
+                          <Card.Img
+                            variant='top'
+                            src={contact.photo}
+                            className='avatar-images '
+                          />
+                        </Col>
+                        {/* Middle of card information */}
+                        <Col
+                          className='card-info d-flex align-items-center justify-content-center p-1 '
+                          xs={7}
                         >
-                          <FontAwesomeIcon icon={faTrash} />
-                        </Button>
-
-                        <Modal
-                          show={show}
-                          onHide={handleClose}
-                          animation={false}
-                          className='delete-modal '
+                          <ListGroup className='fs-5 '>
+                            <ListGroup.Item className='contact-text'>
+                              Name:{size.width < 768 && <br />} {contact.name}
+                            </ListGroup.Item>
+                            <ListGroup.Item className='contact-text'>
+                              Phone Number: {size.width < 768 && <br />}{' '}
+                              {contact.number}
+                            </ListGroup.Item>
+                            <ListGroup.Item className='contact-text'>
+                              Email: {size.width < 768 && <br />}{' '}
+                              {contact.email}
+                            </ListGroup.Item>
+                          </ListGroup>
+                        </Col>
+                        {/* Right side of card icons */}
+                        <Col
+                          className='d-flex p-1 mx-1 d-flex flex-column justify-content-between align-items-start'
+                          id='card-icons'
                         >
-                          <Modal.Header closeButton></Modal.Header>
-                          <Modal.Body>
-                            <Alert variant='danger' className='fs-4 text-black'>
-                              Are you sure you want to permanently delete this
-                              contact?
-                            </Alert>
-                          </Modal.Body>
-                          <Modal.Footer className='d-flex justify-content-center'>
-                            <Button
-                              variant='danger'
-                              className='btn btn-lg  w-25 fs-4  '
-                              onClick={() => {
-                                handleDelete(modalIdInfo);
-                                handleClose();
-                              }}
-                            >
-                              DELETE
+                          {/* View Button */}
+                          <Link
+                            to={`/view/${contact.id}`}
+                            className='card-icon'
+                          >
+                            <Button variant='warning'>
+                              <FontAwesomeIcon icon={faEye} />
                             </Button>
-                          </Modal.Footer>
-                        </Modal>
-                      </Col>
-                    </Card.Body>
-                  </Card>
+                          </Link>
+                          {/* Edit button */}
+                          <Link
+                            to={`/edit/${contact.id}`}
+                            className='card-icon'
+                          >
+                            <Button variant='success'>
+                              <FontAwesomeIcon icon={faPen} />
+                            </Button>
+                          </Link>
+
+                          {/* Modal for delete confirm */}
+                          <Button
+                            variant='danger'
+                            onClick={() => {
+                              handleShow();
+                              setModalIdInfo(contact.id);
+                            }}
+                            className='card-icon'
+                          >
+                            <FontAwesomeIcon icon={faTrash} />
+                          </Button>
+
+                          <Modal
+                            show={show}
+                            onHide={handleClose}
+                            animation={false}
+                            className='delete-modal '
+                          >
+                            <Modal.Header closeButton></Modal.Header>
+                            <Modal.Body>
+                              <Alert
+                                variant='danger'
+                                className='fs-4 text-black'
+                              >
+                                Are you sure you want to permanently delete this
+                                contact?
+                              </Alert>
+                            </Modal.Body>
+                            <Modal.Footer className='d-flex justify-content-center'>
+                              <Button
+                                variant='danger'
+                                className='btn btn-lg  w-25 fs-4  '
+                                onClick={() => {
+                                  handleDelete(modalIdInfo);
+                                  handleClose();
+                                }}
+                              >
+                                DELETE
+                              </Button>
+                            </Modal.Footer>
+                          </Modal>
+                        </Col>
+                      </Card.Body>
+                    </Card>
+                  </Row>
                 </Col>
               </React.Fragment>
             ))}

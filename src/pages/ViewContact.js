@@ -95,12 +95,12 @@ const ViewContact = ({
         </div>
       ) : (
         <Container
-          className='  position-absolute top-50 start-50 translate-middle border-2 rounded shadow bg-body rounded  w-50 view-contact-wrapper'
+          className='d-flex   justify-content-center align-items-center  '
           id='view-contact'
         >
           <Row
             id='view-contact-container'
-            className='border border-warning border border-2 p-5 d-flex justify-content-between '
+            className=' border border-warning border border-2 p-5 d-flex border-2 rounded shadow bg-body rounded position-relative'
           >
             <Col className='avatar-wrapper d-flex justify-content-center align-items-center px-5'>
               <img
