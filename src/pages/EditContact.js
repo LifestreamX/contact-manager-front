@@ -137,10 +137,10 @@ const EditContact = ({
       ) : (
         <Container
           id='edit'
-          className=' d-flex edit-contact-wrapper mt-5 w-100  '
+          className=' d-flex edit-contact-wrapper mt-5 w-100 '
         >
           <Row
-            className='position-absolute top-50 start-50 translate-middle border border-success border border-2 rounded shadow bg-body rounded position-relative  d-flex flex-column w-50 pb-5 px-5'
+            className='position-absolute top-50 start-50 translate-middle border border-success border border-2 rounded shadow bg-body rounded position-relative  d-flex flex-column w-50  pb-5 px-5'
             id='edit-contact'
           >
             <Col>

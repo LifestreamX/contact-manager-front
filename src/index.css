@@ -5,10 +5,10 @@
   font-family: 'Bebas Neue', cursive;
 }
 
-/* .nav-info{
-  width: 50%;
- 
-} */
+body {
+  box-sizing: border-box;
+  width: 100%;
+}
 
 /* NavBar Component */
 .nav-info:hover {
@@ -70,17 +70,13 @@ input[type='number']::-webkit-outer-spin-button {
 /* Edit contact page */
 
 .edit-contact-wrapper {
-  margin-top: 10px !important;
   position: absolute;
-
-  top: 50%;
+  top: -300px;
+  height: 150vh;
 }
 
-.edit-contact-photo {
-  height: 300px;
-  margin-left: 50px;
-  border-radius: 50px;
-  /* position: relative; */
+#edit-contact {
+  width: 70% !important;
 }
 
 /* Delete Modal */
@@ -100,6 +96,12 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 /* RESPONSIVE */
+
+@media screen and (max-width: 1025px) {
+  .edit-contact-wrapper {
+    top: -300px;
+  }
+}
 
 @media (max-width: 768px) {
   .contact-list-section {
@@ -136,9 +138,12 @@ input[type='number']::-webkit-outer-spin-button {
 
   /* Edit contact */
 
+  .edit-contact-wrapper {
+    top: -120px !important;
+  }
+
   #edit-contact {
     width: 95% !important;
-    top: 200px !important;
   }
 
   .edit-contact-photo {
@@ -184,5 +189,15 @@ input[type='number']::-webkit-outer-spin-button {
 
   .card-body {
     width: 100% !important;
+  }
+
+  .edit-contact-wrapper {
+    top: 10% !important;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .edit-contact-wrapper {
+    top: 25% !important;
   }
 }
