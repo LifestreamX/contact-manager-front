@@ -2,9 +2,9 @@
 
 Contact Manager
 
-## Demo link:
 
-<!-- Access my site at [google.com](https://google.com) -->
+
+ Access my site at https://contact-manager-front.onrender.com/
 
 ## About The App
 
