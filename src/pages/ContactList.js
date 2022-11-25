@@ -165,9 +165,9 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
             {filteredItems.map((contact) => (
               <React.Fragment key={contact.id}>
                 {/* Contact profile information */}
-                <Col className='d-flex w-100 g-5 card-col contact-row '>
-                  <Row className='w-100 '>
-                    <Card className='p-3 w-100 card'>
+                <Col className='d-flex w-100 g-5 card-col  '>
+                  <Row className='w-100 card-wrap'>
+                    <Card className='p-3 contact-row  card '>
                       {/* Left of card avatar */}
                       <Card.Body className='d-flex card-body w-100 '>
                         <Col className='d-flex align-items-center p-1 '>

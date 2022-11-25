@@ -33,6 +33,10 @@ body {
   border-radius: 20px !important;
 }
 
+.contact-row {
+  width: 550px !important;
+}
+
 /* Add contact component */
 .cancel-new-contact-icon:hover {
   color: red !important;
@@ -105,6 +109,14 @@ input[type='number']::-webkit-outer-spin-button {
 
 /* RESPONSIVE */
 
+@media screen and (max-width: 1400px) {
+  .card-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .card-col {
     width: 100%;
@@ -155,6 +167,17 @@ input[type='number']::-webkit-outer-spin-button {
     margin-right: 8px;
   }
 
+  .contact-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-row {
+    width: 75vw;
+  }
+
   /* Edit contact */
 
   #edit-contact {
@@ -185,8 +208,6 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 @media screen and (max-width: 480px) {
- 
-
   .card {
     width: 100% !important;
   }
@@ -212,10 +233,6 @@ input[type='number']::-webkit-outer-spin-button {
 @media screen and (max-width: 350px) {
   .edit-contact-wrapper {
     top: 25% !important;
-  }
-
-  .contact-row {
-    width: 100vw !important;
   }
 
   .contact-text {
