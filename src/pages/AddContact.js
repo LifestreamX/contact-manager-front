@@ -37,7 +37,7 @@ const AddContact = ({
   const grabRelationshipsData = () => {
     // const serverURL = '  http://localhost:9000';
 
-    const serverURL = 'https://contact-manager-back.onrender.com';
+    const serverURL = 'contact-manager-back-production.up.railway.app';
     let dataURL = `${serverURL}/groups`;
     return axios.get(dataURL);
   };
@@ -65,7 +65,7 @@ const AddContact = ({
   };
 
   const createContact = (contactInfo) => {
-    const serverURL = 'https://contact-manager-back.onrender.com';
+    const serverURL = 'contact-manager-back-production.up.railway.app';
     let dataURL = `${serverURL}/contacts`;
     return axios.post(dataURL, contactInfo);
   };
