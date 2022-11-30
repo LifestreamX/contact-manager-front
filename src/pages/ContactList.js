@@ -34,9 +34,7 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
 
   // Grabbing contact data on original page load
   const grabServerContactData = () => {
-    // const serverURL = '  http://localhost:9000';
-
-    const serverURL = 'contact-manager-back-production.up.railway.app';
+    const serverURL = 'https://contact-manager-back-production.up.railway.app';
     let dataURL = `${serverURL}/contacts`;
     return axios.get(dataURL);
   };
@@ -84,6 +82,7 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
 
   function useWindowSize() {
     // Initialize state with undefined width/height so server and client renders match
+    // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
     const [windowSize, setWindowSize] = useState({
       width: undefined,
       height: undefined,
