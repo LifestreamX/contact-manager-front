@@ -36,7 +36,7 @@ const EditContact = ({
 
   // Using id from view contact id to grab data from server
   const getContactDataById = (contactId) => {
-    const serverURL = 'https://emerald-xerus-hat.cyclic.app';
+    const serverURL = 'https://contact-manager-back.onrender.com';
     let dataURL = `${serverURL}/contacts/${contactId}`;
     return axios.get(dataURL);
   };
@@ -67,7 +67,7 @@ const EditContact = ({
 
   // Matching group number to groups to display group name
   const grabGroupData = () => {
-    const serverURL = 'https://emerald-xerus-hat.cyclic.app';
+    const serverURL = 'https://contact-manager-back.onrender.com';
     let dataURL = `${serverURL}/groups`;
     return axios.get(dataURL);
   };
@@ -101,7 +101,7 @@ const EditContact = ({
   };
 
   const EditContact = (contactInfo) => {
-    const serverURL = 'https://emerald-xerus-hat.cyclic.app';
+    const serverURL = 'https://contact-manager-back.onrender.com';
     // const serverURL = '  http://localhost:9000';
 
     let dataURL = `${serverURL}/contacts/${contactId}`;

@@ -34,7 +34,7 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
 
   // Grabbing contact data on original page load
   const grabServerContactData = () => {
-    const serverURL = 'https://emerald-xerus-hat.cyclic.app';
+    const serverURL = 'https://contact-manager-back.onrender.com';
     let dataURL = `${serverURL}/contacts`;
     return axios.get(dataURL);
   };
@@ -61,9 +61,8 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
 
   // Delete logic
   const deleteContact = (contactId) => {
-    // const serverURL = '  http://localhost:9000';
-
-    const serverURL = 'https://emerald-xerus-hat.cyclic.app';
+    // const serverURL = 'http://localhost:9000';
+    const serverURL = 'https://contact-manager-back.onrender.com';
     let dataURL = `${serverURL}/contacts/${contactId}`;
     return axios.delete(dataURL);
   };
@@ -106,7 +105,6 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
     return windowSize;
   }
 
-  console.log(contacts);
   return (
     <>
       {/* While data is loading spinner */}

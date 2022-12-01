@@ -36,8 +36,7 @@ const AddContact = ({
 
   const grabRelationshipsData = () => {
     // const serverURL = '  http://localhost:9000';
-
-    const serverURL = 'https://emerald-xerus-hat.cyclic.app';
+    const serverURL = 'https://contact-manager-back.onrender.com';
     let dataURL = `${serverURL}/groups`;
     return axios.get(dataURL);
   };
@@ -45,7 +44,6 @@ const AddContact = ({
   const settingGroupData = async () => {
     let res = await grabRelationshipsData();
     setRelationshipInfo(res.data);
-    
   };
 
   useEffect(() => {
@@ -65,7 +63,7 @@ const AddContact = ({
   };
 
   const createContact = (contactInfo) => {
-    const serverURL = 'https://emerald-xerus-hat.cyclic.app';
+    const serverURL = 'https://contact-manager-back.onrender.com';
     let dataURL = `${serverURL}/contacts`;
     return axios.post(dataURL, contactInfo);
   };
@@ -85,7 +83,10 @@ const AddContact = ({
 
   return (
     <Container className='d-flex flex-column justify-content-center align-items-center my-3 h-100 mt-5'>
-      <Row id='add-contact-row' className='border border-primary border border-2 rounded shadow bg-body rounded position-relative d-flex flex-column w-50 px-5 pb-3 '>
+      <Row
+        id='add-contact-row'
+        className='border border-primary border border-2 rounded shadow bg-body rounded position-relative d-flex flex-column w-50 px-5 pb-3 '
+      >
         <Col>
           <p className=' d-flex justify-content-center fs-4 fw-bolder mt-4  flex-column align-items-center '>
             <span className='text-center add-title fs-1 mb-4'>
