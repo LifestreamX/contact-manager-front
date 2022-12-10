@@ -39,9 +39,7 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
     return axios.get(dataURL);
   };
 
-  setInterval(function () {
-    axios.get('https://contact-manager-back.onrender.com');
-  }, 300000); // every 5 minutes (300000)
+
 
   const data = async () => {
     setLoading(true);
