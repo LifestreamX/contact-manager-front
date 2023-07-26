@@ -9,7 +9,8 @@ import {
 } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
-import backendServerURL from '../backendConfig';
+
+const { BACKEND_SERVER_URL } = process.env;
 
 const ViewContact = ({
   loading,
@@ -29,7 +30,7 @@ const ViewContact = ({
 
     // const serverURL = 'https://contact-manager-back-production.up.railway.app';
     // const serverURL = { backendServerURL };
-    let dataURL = `${backendServerURL}/contacts/${contactId}`;
+    let dataURL = `${BACKEND_SERVER_URL}/contacts/${contactId}`;
     return axios.get(dataURL);
   };
 
@@ -54,7 +55,7 @@ const ViewContact = ({
     // const serverURL = '  http://localhost:9000';
     // const serverURL = 'https://contact-manager-back-production.up.railway.app';
     // const serverURL = { backendServerURL };
-    let dataURL = `${backendServerURL}/groups`;
+    let dataURL = `${BACKEND_SERVER_URL}/groups`;
     return axios.get(dataURL);
   };
 

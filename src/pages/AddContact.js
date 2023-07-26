@@ -12,7 +12,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import backendServerURL from '../backendConfig';
+
+
+
+const { BACKEND_SERVER_URL } = process.env;
 
 const AddContact = ({
   name,
@@ -39,7 +42,7 @@ const AddContact = ({
     // const serverURL = '  http://localhost:9000';
     // const serverURL = 'https://contact-manager-back-production.up.railway.app';
     // const serverURL = { backendServerURL };
-    let dataURL = `${backendServerURL}/groups`;
+    let dataURL = `${BACKEND_SERVER_URL}/groups`;
     return axios.get(dataURL);
   };
 
@@ -67,7 +70,7 @@ const AddContact = ({
   const createContact = (contactInfo) => {
     // const serverURL = 'https://contact-manager-back-production.up.railway.app';
     // const serverURL = { backendServerURL };
-    let dataURL = `${backendServerURL}/contacts`;
+    let dataURL = `${BACKEND_SERVER_URL}/contacts`;
     return axios.post(dataURL, contactInfo);
   };
 

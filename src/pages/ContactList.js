@@ -1,5 +1,6 @@
 import React, { useEffect, useState, Fragment, useMemo } from 'react';
-import backendServerURL from '../backendConfig';
+
+
 
 import {
   Container,
@@ -25,6 +26,9 @@ import {
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+const { BACKEND_SERVER_URL } = process.env;
+
+
 const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
   const [search, setSearch] = useState('');
   const [show, setShow] = useState(false);
@@ -37,7 +41,7 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
   const grabServerContactData = () => {
     // const serverURL = 'https://contact-manager-back-production.up.railway.app';
     // const serverURL = { backendServerURL };
-    let dataURL = `${backendServerURL}/contacts`;
+    let dataURL = `${BACKEND_SERVER_URL}/contacts`;
     return axios.get(dataURL);
   };
 
@@ -65,8 +69,8 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
   const deleteContact = (contactId) => {
     // const serverURL = 'http://localhost:9000';
     // const serverURL = 'https://contact-manager-back-production.up.railway.app';
-    const serverURL = { backendServerURL };
-    let dataURL = `${serverURL}/contacts/${contactId}`;
+    // const serverURL = { backendServerURL };
+    let dataURL = `${BACKEND_SERVER_URL}/contacts/${contactId}`;
     return axios.delete(dataURL);
   };
 
