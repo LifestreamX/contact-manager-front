@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import backendServerURL from '../backendConfig';
 
 import {
   Col,
@@ -37,8 +38,8 @@ const EditContact = ({
   // Using id from view contact id to grab data from server
   const getContactDataById = (contactId) => {
     // const serverURL = 'https://contact-manager-back-production.up.railway.app';
-    const serverURL = 'https://contact-manager-back.vercel.app';
-    let dataURL = `${serverURL}/contacts/${contactId}`;
+    // const serverURL = { backendServerURL };
+    let dataURL = `${backendServerURL}/contacts/${contactId}`;
     return axios.get(dataURL);
   };
 
@@ -69,8 +70,8 @@ const EditContact = ({
   // Matching group number to groups to display group name
   const grabGroupData = () => {
     // const serverURL = 'https://contact-manager-back-production.up.railway.app';
-    const serverURL = 'https://contact-manager-back.vercel.app';
-    let dataURL = `${serverURL}/groups`;
+    // const serverURL = { backendServerURL };
+    let dataURL = `${backendServerURL}/groups`;
     return axios.get(dataURL);
   };
 
@@ -104,10 +105,10 @@ const EditContact = ({
 
   const EditContact = (contactInfo) => {
     // const serverURL = 'https://contact-manager-back-production.up.railway.app';
-    const serverURL = 'https://contact-manager-back.vercel.app';
+    // const serverURL = { backendServerURL };
     // const serverURL = '  http://localhost:9000';
 
-    let dataURL = `${serverURL}/contacts/${contactId}`;
+    let dataURL = `${backendServerURL}/contacts/${contactId}`;
     return axios.put(dataURL, contactInfo);
   };
 

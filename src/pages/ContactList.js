@@ -1,4 +1,5 @@
 import React, { useEffect, useState, Fragment, useMemo } from 'react';
+import backendServerURL from '../backendConfig';
 
 import {
   Container,
@@ -35,12 +36,10 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
   // Grabbing contact data on original page load
   const grabServerContactData = () => {
     // const serverURL = 'https://contact-manager-back-production.up.railway.app';
-    const serverURL = 'https://contact-manager-back.vercel.app';
-    let dataURL = `${serverURL}/contacts`;
+    // const serverURL = { backendServerURL };
+    let dataURL = `${backendServerURL}/contacts`;
     return axios.get(dataURL);
   };
-
-
 
   const data = async () => {
     setLoading(true);
@@ -66,7 +65,7 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
   const deleteContact = (contactId) => {
     // const serverURL = 'http://localhost:9000';
     // const serverURL = 'https://contact-manager-back-production.up.railway.app';
-    const serverURL = 'https://contact-manager-back.vercel.app';
+    const serverURL = { backendServerURL };
     let dataURL = `${serverURL}/contacts/${contactId}`;
     return axios.delete(dataURL);
   };

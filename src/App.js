@@ -24,9 +24,6 @@ function App() {
   const [relationship, setRelationship] = useState('');
   const [relationShipInfo, setRelationshipInfo] = useState([]);
 
-
-
-
   return (
     <div className='app-wrapper'>
       <NavBar />

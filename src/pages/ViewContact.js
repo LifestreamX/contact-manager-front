@@ -9,6 +9,7 @@ import {
 } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
+import backendServerURL from '../backendConfig';
 
 const ViewContact = ({
   loading,
@@ -27,8 +28,8 @@ const ViewContact = ({
     // const serverURL = '  http://localhost:9000';
 
     // const serverURL = 'https://contact-manager-back-production.up.railway.app';
-    const serverURL = 'https://contact-manager-back.vercel.app';
-    let dataURL = `${serverURL}/contacts/${contactId}`;
+    // const serverURL = { backendServerURL };
+    let dataURL = `${backendServerURL}/contacts/${contactId}`;
     return axios.get(dataURL);
   };
 
@@ -52,8 +53,8 @@ const ViewContact = ({
   const grabGroupData = () => {
     // const serverURL = '  http://localhost:9000';
     // const serverURL = 'https://contact-manager-back-production.up.railway.app';
-    const serverURL = 'https://contact-manager-back.vercel.app';
-    let dataURL = `${serverURL}/groups`;
+    // const serverURL = { backendServerURL };
+    let dataURL = `${backendServerURL}/groups`;
     return axios.get(dataURL);
   };
 

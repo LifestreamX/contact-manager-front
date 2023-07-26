@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import backendServerURL from '../backendConfig';
 
 const AddContact = ({
   name,
@@ -37,8 +38,8 @@ const AddContact = ({
   const grabRelationshipsData = () => {
     // const serverURL = '  http://localhost:9000';
     // const serverURL = 'https://contact-manager-back-production.up.railway.app';
-    const serverURL = 'https://contact-manager-back.vercel.app';
-    let dataURL = `${serverURL}/groups`;
+    // const serverURL = { backendServerURL };
+    let dataURL = `${backendServerURL}/groups`;
     return axios.get(dataURL);
   };
 
@@ -65,8 +66,8 @@ const AddContact = ({
 
   const createContact = (contactInfo) => {
     // const serverURL = 'https://contact-manager-back-production.up.railway.app';
-    const serverURL = 'https://contact-manager-back.vercel.app';
-    let dataURL = `${serverURL}/contacts`;
+    // const serverURL = { backendServerURL };
+    let dataURL = `${backendServerURL}/contacts`;
     return axios.post(dataURL, contactInfo);
   };
 
