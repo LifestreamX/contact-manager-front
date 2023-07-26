@@ -36,7 +36,8 @@ const EditContact = ({
 
   // Using id from view contact id to grab data from server
   const getContactDataById = (contactId) => {
-    const serverURL = 'https://contact-manager-back-production.up.railway.app';
+    // const serverURL = 'https://contact-manager-back-production.up.railway.app';
+    const serverURL = 'https://contact-manager-back.vercel.app';
     let dataURL = `${serverURL}/contacts/${contactId}`;
     return axios.get(dataURL);
   };
@@ -67,7 +68,8 @@ const EditContact = ({
 
   // Matching group number to groups to display group name
   const grabGroupData = () => {
-    const serverURL = 'https://contact-manager-back-production.up.railway.app';
+    // const serverURL = 'https://contact-manager-back-production.up.railway.app';
+    const serverURL = 'https://contact-manager-back.vercel.app';
     let dataURL = `${serverURL}/groups`;
     return axios.get(dataURL);
   };
@@ -101,7 +103,8 @@ const EditContact = ({
   };
 
   const EditContact = (contactInfo) => {
-    const serverURL = 'https://contact-manager-back-production.up.railway.app';
+    // const serverURL = 'https://contact-manager-back-production.up.railway.app';
+    const serverURL = 'https://contact-manager-back.vercel.app';
     // const serverURL = '  http://localhost:9000';
 
     let dataURL = `${serverURL}/contacts/${contactId}`;
