@@ -15,7 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
 
-const { BACKEND_SERVER_URL } = process.env;
+const BACKEND_SERVER_URL = process.env.BACKEND_SERVER_URL;
 
 
 const EditContact = ({

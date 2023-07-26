@@ -15,7 +15,7 @@ import axios from 'axios';
 
 
 
-const { BACKEND_SERVER_URL } = process.env;
+const BACKEND_SERVER_URL = process.env.BACKEND_SERVER_URL;
 
 const AddContact = ({
   name,

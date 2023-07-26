@@ -1,7 +1,5 @@
 import React, { useEffect, useState, Fragment, useMemo } from 'react';
 
-
-
 import {
   Container,
   Row,
@@ -26,8 +24,7 @@ import {
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const { BACKEND_SERVER_URL } = process.env;
-
+const BACKEND_SERVER_URL = process.env.BACKEND_SERVER_URL;
 
 const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
   const [search, setSearch] = useState('');
