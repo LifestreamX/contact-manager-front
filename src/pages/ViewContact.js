@@ -10,7 +10,7 @@ import {
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 
-const BACKEND_SERVER_URL = process.env.BACKEND_SERVER_URL;
+import { productionServerUrl, devServerUrl } from '../ServerUrl';
 
 const ViewContact = ({
   loading,
@@ -26,11 +26,7 @@ const ViewContact = ({
   // update
   // Using id from view contact id to grab data from server
   const getContactDataById = (contactId) => {
-    // const serverURL = '  http://localhost:9000';
-
-    // const serverURL = 'https://contact-manager-back-production.up.railway.app';
-    // const serverURL = { backendServerURL };
-    let dataURL = `${BACKEND_SERVER_URL}/contacts/${contactId}`;
+    let dataURL = `${productionServerUrl}/contacts/${contactId}`;
     return axios.get(dataURL);
   };
 
@@ -52,10 +48,10 @@ const ViewContact = ({
 
   // Matching group number to groups to display group name
   const grabGroupData = () => {
-    // const serverURL = '  http://localhost:9000';
-    const serverURL = 'https://contact-manager-back-production.up.railway.app';
+    const serverURL = 'http://localhost:9000';
+    // const serverURL = 'https://contact-manager-back-production.up.railway.app';
     // const serverURL = { backendServerURL };
-    let dataURL = `${BACKEND_SERVER_URL}/groups`;
+    let dataURL = `${productionServerUrl}/groups`;
     return axios.get(dataURL);
   };
 

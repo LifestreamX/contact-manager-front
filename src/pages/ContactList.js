@@ -24,7 +24,8 @@ import {
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const BACKEND_SERVER_URL = process.env.BACKEND_SERVER_URL;
+import { productionServerUrl, devServerUrl } from '../ServerUrl';
+
 
 const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
   const [search, setSearch] = useState('');
@@ -36,9 +37,7 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
 
   // Grabbing contact data on original page load
   const grabServerContactData = () => {
-    // const serverURL = 'https://contact-manager-back-production.up.railway.app';
-    // const serverURL = { backendServerURL };
-    let dataURL = `${BACKEND_SERVER_URL}/contacts`;
+    let dataURL = `${productionServerUrl}/contacts`;
     return axios.get(dataURL);
   };
 
@@ -64,10 +63,10 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
 
   // Delete logic
   const deleteContact = (contactId) => {
-    // const serverURL = 'http://localhost:9000';
+    const serverURL = 'http://localhost:9000';
     // const serverURL = 'https://contact-manager-back-production.up.railway.app';
     // const serverURL = { backendServerURL };
-    let dataURL = `${BACKEND_SERVER_URL}/contacts/${contactId}`;
+    let dataURL = `${productionServerUrl}/contacts/${contactId}`;
     return axios.delete(dataURL);
   };
 

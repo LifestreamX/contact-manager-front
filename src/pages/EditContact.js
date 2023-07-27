@@ -15,8 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
 
-const BACKEND_SERVER_URL = process.env.BACKEND_SERVER_URL;
-
+import { productionServerUrl, devServerUrl } from '../ServerUrl';
 
 const EditContact = ({
   loading,
@@ -41,7 +40,7 @@ const EditContact = ({
   const getContactDataById = (contactId) => {
     // const serverURL = 'https://contact-manager-back-production.up.railway.app';
     // const serverURL = { backendServerURL };
-    let dataURL = `${BACKEND_SERVER_URL}/contacts/${contactId}`;
+    let dataURL = `${productionServerUrl}/contacts/${contactId}`;
     return axios.get(dataURL);
   };
 
@@ -71,9 +70,7 @@ const EditContact = ({
 
   // Matching group number to groups to display group name
   const grabGroupData = () => {
-    // const serverURL = 'https://contact-manager-back-production.up.railway.app';
-    // const serverURL = { backendServerURL };
-    let dataURL = `${BACKEND_SERVER_URL}/groups`;
+    let dataURL = `${productionServerUrl}/groups`;
     return axios.get(dataURL);
   };
 
@@ -106,11 +103,7 @@ const EditContact = ({
   };
 
   const EditContact = (contactInfo) => {
-    // const serverURL = 'https://contact-manager-back-production.up.railway.app';
-    // const serverURL = { backendServerURL };
-    // const serverURL = '  http://localhost:9000';
-
-    let dataURL = `${BACKEND_SERVER_URL}/contacts/${contactId}`;
+    let dataURL = `${productionServerUrl}/contacts/${contactId}`;
     return axios.put(dataURL, contactInfo);
   };
 
