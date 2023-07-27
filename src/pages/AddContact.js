@@ -13,10 +13,7 @@ import { faX } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-
-
 import { productionServerUrl, devServerUrl } from '../ServerUrl';
-
 
 const AddContact = ({
   name,
@@ -73,10 +70,9 @@ const AddContact = ({
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let res = await createContact(contactInfo);
-      
-        navigate('/', { replace: true });
-      
+      await createContact(contactInfo);
+
+      navigate('/', { replace: true });
     } catch (error) {
       errorMessage();
       navigate('/add', { replace: false });
