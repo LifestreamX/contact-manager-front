@@ -75,7 +75,7 @@ const AddContact = ({
       navigate('/', { replace: true });
     } catch (error) {
       errorMessage();
-      navigate('/add', { replace: false });
+      navigate('/', { replace: false });
     }
   };
 
