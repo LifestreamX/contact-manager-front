@@ -26,7 +26,6 @@ import axios from 'axios';
 
 import { productionServerUrl, devServerUrl } from '../ServerUrl';
 
-
 const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
   const [search, setSearch] = useState('');
   const [show, setShow] = useState(false);
@@ -38,14 +37,20 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
   // Grabbing contact data on original page load
   const grabServerContactData = () => {
     let dataURL = `${productionServerUrl}/contacts`;
+
     return axios.get(dataURL);
   };
 
   const data = async () => {
-    setLoading(true);
-    let res = await grabServerContactData();
-    setContacts(res.data);
-    setLoading(false);
+    try {
+      setLoading(true);
+      let res = await grabServerContactData();
+      setContacts(res.data);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -76,7 +81,9 @@ const ContactList = ({ loading, setLoading, contacts, setContacts }) => {
       if (res) {
         data();
       }
-    } catch {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // Window length responsive hook
