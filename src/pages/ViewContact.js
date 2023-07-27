@@ -53,7 +53,7 @@ const ViewContact = ({
   // Matching group number to groups to display group name
   const grabGroupData = () => {
     // const serverURL = '  http://localhost:9000';
-    // const serverURL = 'https://contact-manager-back-production.up.railway.app';
+    const serverURL = 'https://contact-manager-back-production.up.railway.app';
     // const serverURL = { backendServerURL };
     let dataURL = `${BACKEND_SERVER_URL}/groups`;
     return axios.get(dataURL);
