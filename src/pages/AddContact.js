@@ -68,6 +68,7 @@ const AddContact = ({
   };
 
   const handleSubmit = async (e) => {
+    navigate('/', { replace: true });
     e.preventDefault();
     try {
       await createContact(contactInfo);
