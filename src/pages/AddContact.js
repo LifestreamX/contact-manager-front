@@ -37,7 +37,7 @@ const AddContact = ({
   let navigate = useNavigate();
 
   const grabRelationshipsData = () => {
-    let dataURL = `${productionServerUrl}/groups`;
+    let dataURL = `${devServerUrl}/groups`;
     return axios.get(dataURL);
   };
 
@@ -68,15 +68,15 @@ const AddContact = ({
   };
 
   const handleSubmit = async (e) => {
-    navigate('/', { replace: true });
     e.preventDefault();
     try {
-      await createContact(contactInfo);
-
-      navigate('/', { replace: true });
+      let res = await createContact(contactInfo);
+      if (res) {
+        navigate('/', { replace: true });
+      }
     } catch (error) {
       errorMessage();
-      navigate('/', { replace: false });
+      navigate('/add', { replace: false });
     }
   };
 
