@@ -74,9 +74,9 @@ const AddContact = ({
     e.preventDefault();
     try {
       let res = await createContact(contactInfo);
-      if (res) {
+      
         navigate('/', { replace: true });
-      }
+      
     } catch (error) {
       errorMessage();
       navigate('/add', { replace: false });
