@@ -37,12 +37,13 @@ const AddContact = ({
   let navigate = useNavigate();
 
   const grabRelationshipsData = () => {
-    let dataURL = `${devServerUrl}/groups`;
+    let dataURL = `${productionServerUrl}/groups`;
     return axios.get(dataURL);
   };
 
   const settingGroupData = async () => {
     let res = await grabRelationshipsData();
+    console.log(res);
     setRelationshipInfo(res.data);
   };
 
